@@ -75,7 +75,7 @@ $(function () {
 
     var mtlLoader = new THREE.MTLLoader();
     mtlLoader.crossOrigin = true;
-    mtlLoader.setPath( '/js/obj/' );
+    mtlLoader.setPath( '/energogarant-lk/js/obj/' );
     mtlLoader.load( url3d+'.mtl', function( materials ) {
 
       materials.preload();
@@ -83,7 +83,7 @@ $(function () {
       var objLoader = new THREE.OBJLoader();
       objLoader.crossOrigin = true;
       objLoader.setMaterials( materials );
-      objLoader.setPath( '/js/obj/' );
+      objLoader.setPath( '/energogarant-lk/js/obj/' );
       objLoader.load( url3d+'.obj', function ( object ) {
 
         object.position.y = - 95;
