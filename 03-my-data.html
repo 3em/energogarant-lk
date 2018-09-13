@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Энергогарант</title>
+
+    <link rel="stylesheet" href="css/jquery-ui.min.css" media="all">
+    <link rel="stylesheet" href="css/common.css" media="all">
+
+    <script src="js/libs/jquery-3.3.1.min.js"></script>
+    <script src="js/libs/jquery-ui.min.js"></script>
+    <script src="js/libs/jquery.datepick-ru.js"></script>
+    <script src="js/libs/phone-mask.js"></script>
+
+    <script src="js/main.js"></script>
+    <script src="js/feedback.js"></script>
+    <script src="js/lk.js"></script>
+
+</head>
+<body>
+
+    <header class="b-header">
+        <div class="u-clear-fix b-wrapper">
+            <a href="/" class="b-logo" title="Энергогарант"></a>
+            <a href="#" class="b-header__user active">Константин К.</a>
+            <div class="u-clear-fix b-header__center">
+                <a href="#" class="js-ins-case-call b-button b-button__ins-case">Страховой случай</a>
+                <ul class="u-clear-fix b-header__menu">
+                    <li>
+                        <a href="#" class="b-header__menu-link">Оплата полиса</a>
+                    </li>
+                    <li>
+                        <a href="#" class="js-feedback-call b-header__menu-link">Обратная связь</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="u-clear-fix b-header__right">
+                <a href="#" class="b-header__policies">мои полисы</a>
+                <a href="#" class="b-header__exit">Выйти</a>
+            </div>
+
+            <div class="js-notification b-notification">
+                <a href="#" class="js-notification-link b-notification__link">
+                    <span>2</span>
+                </a>
+
+                <ul class="b-notification__down">
+                    <li>
+                        <a href="#" class="b-notification__down-link">
+                            <span>11 августа</span>
+                            По ДТП от 10 июля назначена страховая выплата
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="b-notification__down-link">
+                            <span>11 августа</span>
+                            Срок действия полиса ДМС истекает через 6 дней
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <a href="tel:+74957370330" class="b-header__phone">8 (495) 737-03-30</a>
+        </div>
+    </header>
+
+    <a href="#" class="js-burger-call b-burger__link"></a>
+
+    <div class="js-mob-menu b-mob-menu">
+        <a href="#" class="b-mob-menu__logo"></a>
+
+        <a href="#" class="b-mob-menu__user active"><span>Константин К.</span></a>
+
+        <ul class="u-clear-fix b-mob-menu__menu">
+            <li>
+                <a href="#" class="b-mob-menu__menu-link">Список полисов</a>
+            </li>
+            <li>
+                <a href="#" class="b-mob-menu__menu-link">Оплата полиса</a>
+            </li>
+            <li>
+                <a href="#" class="js-feedback-call b-mob-menu__menu-link">Обратная связь</a>
+            </li>
+            <li>
+                <a href="#" class="b-mob-menu__menu-link">Выйти</a>
+            </li>
+        </ul>
+
+        <a href="#" class="js-ins-case-call b-button b-button__ins-case">Страховой случай</a>
+
+    </div>
+
+    <div class="b-content">
+
+        <div class="b-wrapper b-wrapper_content">
+
+            <div class="js-lk b-lk">
+
+                <div class="b-lk__title">
+                    <h1>МОИ ДАННЫЕ</h1>
+                    <a href="#" class="js-change-lk-link b-lk__change">
+                        <span>изменить</span>
+                        <span>отменить</span>
+                    </a>
+                </div>
+
+                <form class="js-lk-form-main b-lk__from b-lk__from_main" action="http://action.php">
+                    <div class="b-lk__from-wrapper">
+                        <h3>ОСНОВНЫЕ</h3>
+
+                        <div class="js-userpic-box b-lk__userpic">
+                            <input type="file" id="lk_userpic" name="lk[userpic]" class="js-userpic-input" accept="image/*">
+                            <label class="js-userpic-label b-lk__userpic_label"></label>
+                        </div>
+
+                        <div class="u-clear-fix">
+
+                            <div class="b-lk__from-column">
+
+                                <div class="js-lk-field b-lk__field-box empty">
+                                    <div class="js-input-box b-input__box">
+                                        <input id="lk_name" name="lk[name]" class="js-required js-input b-input" type="text">
+                                        <label for="lk_name" class="b-input__label">ФИО</label>
+                                        <p class="b-input__error"></p>
+                                    </div>
+                                    <div class="b-lk__field">
+                                        <span class="b-lk__field_label">ФИО</span>
+                                        <span class="js-input-val-insert b-lk__field_val"></span>
+                                    </div>
+                                </div>
+
+                                <div class="js-lk-field b-lk__field-box empty">
+                                    <div class="js-input-box b-input__box">
+                                        <input id="lk_registration-address" name="lk[registration-address]" class="js-required js-input b-input" type="text">
+                                        <label for="lk_registration-address" class="b-input__label">Адрес регистрации</label>
+                                        <p class="b-input__error"></p>
+                                    </div>
+                                    <div class="b-lk__field">
+                                        <span class="b-lk__field_label">Адрес регистрации</span>
+                                        <span class="js-input-val-insert b-lk__field_val"></span>
+                                    </div>
+                                </div>
+
+                                <div class="js-lk-field b-lk__field-box empty">
+                                    <div class="js-input-box b-input__box">
+                                        <input id="lk_address" name="lk[address]" class="js-required js-input b-input" type="text">
+                                        <label for="lk_address" class="b-input__label">Адрес проживания</label>
+                                        <p class="b-input__error"></p>
+                                    </div>
+                                    <div class="b-lk__field">
+                                        <span class="b-lk__field_label">Адрес проживания</span>
+                                        <span class="js-input-val-insert b-lk__field_val"></span>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="b-lk__from-column">
+
+                                <div class="js-lk-field b-lk__field-box empty">
+                                    <div class="js-input-box b-input__box">
+                                        <input id="lk_birthday" name="lk[birthday]" class="js-required js-date js-input b-input" type="text">
+                                        <label for="lk_birthday" class="b-input__label">Дата рождения</label>
+                                        <p class="b-input__error"></p>
+                                    </div>
+                                    <div class="b-lk__field">
+                                        <span class="b-lk__field_label">Дата рождения</span>
+                                        <span class="js-input-val-insert b-lk__field_val"></span>
+                                    </div>
+                                </div>
+
+                                <div class="js-lk-field b-lk__field-box empty">
+                                    <div class="js-input-box b-input__box">
+                                        <input id="lk_burn-place" name="lk[burn-place]" class="js-required js-input b-input b-date-picker" type="text">
+                                        <label for="lk_burn-place" class="b-input__label">Место рождения</label>
+                                        <p class="b-input__error"></p>
+                                    </div>
+                                    <div class="b-lk__field">
+                                        <span class="b-lk__field_label">Место рождения</span>
+                                        <span class="js-input-val-insert b-lk__field_val"></span>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="b-lk__change-pass">
+                            <a href="#" class="js-change-pass-link">Изменить пароль</a>
+                        </div>
+
+                        <div class="b-button__box">
+                            <button type="submit" class="b-button" disabled="disabled">Сохранить</button>
+                        </div>
+
+                        <div class="js-form-error b-forms-error hidden">
+                            Возникла ошибка.<br>Повторите попытку позже.
+                        </div>
+
+                        <div class="js-lk-form-success b-lk__from_success hidden">
+                            Данные сохранены.
+                        </div>
+                    </div>
+                </form>
+
+                <h3>ДОКУМЕНТЫ</h3>
+
+                <ul class="b-lk-docs">
+                    <li class="js-lk-docs-item b-lk-docs__item empty">
+                        <div class="b-lk-docs__title">
+                            <a href="#" class="js-lk-docs-accordion-link b-lk-docs__accord-link">
+                                Паспорт РФ
+                            </a>
+                            <a href="#" class="js-lk-docs-add b-lk-docs__add">
+                                <span>Добавить</span>
+                                <span>Отменить</span>
+                            </a>
+                        </div>
+                        <form class="js-lk-form-accordion js-lk-form-docs b-lk__from b-lk__from_accordion b-lk__from-1" action="http://action.php">
+                            <div class="b-lk__from-wrapper">
+
+                                <div class="u-clear-fix b-lk__from-column_box">
+                                    <div class="b-lk__from-column">
+                                        <div class="js-lk-field b-lk__field-box empty">
+                                            <div class="js-input-box b-input__box">
+                                                <input id="passport_id" name="passport[id]" class="js-local-passport js-required js-input b-input" type="text">
+                                                <label for="passport_id" class="b-input__label">Серия и номер</label>
+                                                <p class="b-input__error"></p>
+                                            </div>
+                                            <div class="b-lk__field">
+                                                <span class="b-lk__field_label">Серия и номер</span>
+                                                <span class="js-input-val-insert b-lk__field_val"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="b-lk__from-column">
+                                        <div class="js-lk-field b-lk__field-box empty">
+                                            <div class="js-input-box b-input__box">
+                                                <input id="passport_date" name="passport[date]" class="js-required js-date js-input b-input" type="text">
+                                                <label for="passport_date" class="b-input__label">Дата выдачи</label>
+                                                <p class="b-input__error"></p>
+                                            </div>
+                                            <div class="b-lk__field">
+                                                <span class="b-lk__field_label">Дата выдачи</span>
+                                                <span class="js-input-val-insert b-lk__field_val"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="js-lk-field b-lk__field-box empty">
+                                    <div class="js-input-box b-input__box">
+                                        <input id="passport_address" name="passport[address]" class="js-required js-input b-input" type="text">
+                                        <label for="passport_address" class="b-input__label">Кем выдан</label>
+                                        <p class="b-input__error"></p>
+                                    </div>
+                                    <div class="b-lk__field">
+                                        <span class="b-lk__field_label">Кем выдан</span>
+                                        <span class="js-input-val-insert b-lk__field_val"></span>
+                                    </div>
+                                </div>
+
+                                <div class="js-lk-field b-lk__field-box empty short">
+                                    <div class="js-input-box b-input__box">
+                                        <input id="passport_unit-code" name="passport[unit-code]" class="js-unit-code js-required js-input b-input" type="text">
+                                        <label for="passport_unit-code" class="b-input__label">Код подразделения</label>
+                                        <p class="b-input__error"></p>
+                                    </div>
+                                    <div class="b-lk__field">
+                                        <span class="b-lk__field_label">Код подразделения</span>
+                                        <span class="js-input-val-insert b-lk__field_val"></span>
+                                    </div>
+                                </div>
+
+                                <div class="js-lk-field-file b-lk__field-box b-lk__field-box_file empty">
+                                    <div class="b-lk__field">
+                                        <span class="b-lk__field_label">Скан копии</span>
+                                    </div>
+                                    <div class="js-file-box b-input-file">
+                                        <input multiple type="file" id="passport_file" name="passport[file]" class="js-file b-input-file__input" accept="image/*">
+                                        <label class="b-input-file__label">
+                                            <span>Выберите файлы или перетащите их сюда</span>
+                                            <span>Прикрепить файл</span>
+                                        </label>
+                                        <p class="b-input-file__faq">Размер файла не должен превышать 10 мегабайт</p>
+                                        <ul class="u-clear-fix js-file-insert b-input-file__text hidden"></ul>
+                                    </div>
+                                </div>
+
+                                <div class="b-button__box">
+                                    <button type="submit" class="b-button" disabled="disabled">Сохранить</button>
+                                </div>
+
+                                <div class="js-form-error b-forms-error hidden">
+                                    Возникла ошибка.<br>Повторите попытку позже.
+                                </div>
+
+                            </div>
+                        </form>
+                    </li>
+
+                    <li class="js-lk-docs-item b-lk-docs__item empty">
+                        <div class="b-lk-docs__title">
+                            <a href="#" class="js-lk-docs-accordion-link b-lk-docs__accord-link">
+                                Заграничный паспорт
+                            </a>
+                            <a href="#" class="js-lk-docs-add b-lk-docs__add">
+                                <span>Добавить</span>
+                                <span>Отменить</span>
+                            </a>
+                        </div>
+                        <form class="js-lk-form-accordion js-lk-form-docs b-lk__from b-lk__from_accordion b-lk__from-2" action="http://action.php">
+                            <div class="b-lk__from-wrapper">
+
+                                <div class="u-clear-fix b-lk__from-column_box">
+                                    <div class="b-lk__from-column">
+                                        <div class="js-lk-field b-lk__field-box empty">
+                                            <div class="js-input-box b-input__box">
+                                                <input id="internPassport_id" name="internPassport[id]" class="js-local-passport js-required js-input b-input" type="text">
+                                                <label for="internPassport_id" class="b-input__label">Серия и номер</label>
+                                                <p class="b-input__error"></p>
+                                            </div>
+                                            <div class="b-lk__field">
+                                                <span class="b-lk__field_label">Серия и номер</span>
+                                                <span class="js-input-val-insert b-lk__field_val"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="b-lk__from-column">
+                                        <div class="js-lk-field b-lk__field-box empty">
+                                            <div class="js-input-box b-input__box">
+                                                <input id="internPassport_date" name="internPassport[date]" class="js-required js-date js-input b-input" type="text">
+                                                <label for="internPassport_date" class="b-input__label">Дата выдачи</label>
+                                                <p class="b-input__error"></p>
+                                            </div>
+                                            <div class="b-lk__field">
+                                                <span class="b-lk__field_label">Дата выдачи</span>
+                                                <span class="js-input-val-insert b-lk__field_val"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="b-lk__from-column">
+                                        <div class="js-lk-field b-lk__field-box empty">
+                                            <div class="js-input-box b-input__box">
+                                                <input id="internPassport_dateOver" name="internPassport[dateOver]" class="js-required js-date js-input b-input" type="text">
+                                                <label for="internPassport_dateOver" class="b-input__label">Действителен до</label>
+                                                <p class="b-input__error"></p>
+                                            </div>
+                                            <div class="b-lk__field">
+                                                <span class="b-lk__field_label">Действителен до</span>
+                                                <span class="js-input-val-insert b-lk__field_val"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="js-lk-field b-lk__field-box empty">
+                                    <div class="js-input-box b-input__box">
+                                        <input id="internPassport_address" name="internPassport[address]" class="js-required js-input b-input" type="text">
+                                        <label for="internPassport_address" class="b-input__label">Кем выдан</label>
+                                        <p class="b-input__error"></p>
+                                    </div>
+                                    <div class="b-lk__field">
+                                        <span class="b-lk__field_label">Кем выдан</span>
+                                        <span class="js-input-val-insert b-lk__field_val"></span>
+                                    </div>
+                                </div>
+
+                                <div class="js-lk-field-file b-lk__field-box b-lk__field-box_file empty">
+                                    <div class="b-lk__field">
+                                        <span class="b-lk__field_label">Скан копии</span>
+                                    </div>
+                                    <div class="js-file-box b-input-file">
+                                        <input multiple type="file" id="internPassport_file" name="internPassport[file]" class="js-file b-input-file__input" accept="image/*">
+                                        <label class="b-input-file__label">
+                                            <span>Выберите файлы или перетащите их сюда</span>
+                                            <span>Прикрепить файл</span>
+                                        </label>
+                                        <p class="b-input-file__faq">Размер файла не должен превышать 10 мегабайт</p>
+                                        <ul class="u-clear-fix js-file-insert b-input-file__text hidden"></ul>
+                                    </div>
+                                </div>
+
+                                <div class="b-button__box">
+                                    <button type="submit" class="b-button" disabled="disabled">Сохранить</button>
+                                </div>
+
+                                <div class="js-form-error b-forms-error hidden">
+                                    Возникла ошибка.<br>Повторите попытку позже.
+                                </div>
+
+                            </div>
+                        </form>
+                    </li>
+
+                    <li class="js-lk-docs-item b-lk-docs__item empty">
+                        <div class="b-lk-docs__title">
+                            <a href="#" class="js-lk-docs-accordion-link b-lk-docs__accord-link">
+                                Водительское удостоверение
+                            </a>
+                            <a href="#" class="js-lk-docs-add b-lk-docs__add">
+                                <span>Добавить</span>
+                                <span>Отменить</span>
+                            </a>
+                        </div>
+                        <form class="js-lk-form-accordion js-lk-form-docs b-lk__from b-lk__from_accordion b-lk__from-3" action="http://action.php">
+                            <div class="b-lk__from-wrapper">
+
+                                <div class="u-clear-fix b-lk__from-column_box">
+                                    <div class="b-lk__from-column">
+                                        <div class="js-lk-field b-lk__field-box empty">
+                                            <div class="js-input-box b-input__box">
+                                                <input id="driverLicense_id" name="driverLicense[id]" class="js-local-passport js-required js-input b-input" type="text">
+                                                <label for="driverLicense_id" class="b-input__label">Серия и номер</label>
+                                                <p class="b-input__error"></p>
+                                            </div>
+                                            <div class="b-lk__field">
+                                                <span class="b-lk__field_label">Серия и номер</span>
+                                                <span class="js-input-val-insert b-lk__field_val"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="b-lk__from-column">
+                                        <div class="js-lk-field b-lk__field-box empty">
+                                            <div class="js-input-box b-input__box">
+                                                <input id="driverLicense_date" name="driverLicense[date]" class="js-required js-date js-input b-input" type="text">
+                                                <label for="driverLicense_date" class="b-input__label">Дата выдачи</label>
+                                                <p class="b-input__error"></p>
+                                            </div>
+                                            <div class="b-lk__field">
+                                                <span class="b-lk__field_label">Дата выдачи</span>
+                                                <span class="js-input-val-insert b-lk__field_val"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="js-lk-field-file b-lk__field-box b-lk__field-box_file empty">
+                                    <div class="b-lk__field">
+                                        <span class="b-lk__field_label">Скан копии</span>
+                                    </div>
+                                    <div class="js-file-box b-input-file">
+                                        <input multiple type="file" id="driverLicense_file" name="driverLicense[file]" class="js-file b-input-file__input" accept="image/*">
+                                        <label class="b-input-file__label">
+                                            <span>Выберите файлы или перетащите их сюда</span>
+                                            <span>Прикрепить файл</span>
+                                        </label>
+                                        <p class="b-input-file__faq">Размер файла не должен превышать 10 мегабайт</p>
+                                        <ul class="u-clear-fix js-file-insert b-input-file__text hidden"></ul>
+                                    </div>
+                                </div>
+
+                                <div class="b-button__box">
+                                    <button type="submit" class="b-button" disabled="disabled">Сохранить</button>
+                                </div>
+
+                                <div class="js-form-error b-forms-error hidden">
+                                    Возникла ошибка.<br>Повторите попытку позже.
+                                </div>
+
+                            </div>
+                        </form>
+                    </li>
+
+                    <li class="js-lk-docs-item b-lk-docs__item empty">
+                        <div class="b-lk-docs__title">
+                            <a href="#" class="js-lk-docs-accordion-link b-lk-docs__accord-link">
+                                Свидетельство о регистрации транспортного средства
+                            </a>
+                            <a href="#" class="js-lk-docs-add b-lk-docs__add">
+                                <span>Добавить</span>
+                                <span>Отменить</span>
+                            </a>
+                        </div>
+                        <form class="js-lk-form-accordion js-lk-form-docs b-lk__from b-lk__from_accordion b-lk__from-4" action="http://action.php">
+                            <div class="b-lk__from-wrapper">
+
+                                <div class="u-clear-fix b-lk__from-column_box">
+                                    <div class="b-lk__from-column">
+                                        <div class="js-lk-field b-lk__field-box empty">
+                                            <div class="js-input-box b-input__box">
+                                                <input id="transport_id" name="transport[id]" class="js-local-passport js-required js-input b-input" type="text">
+                                                <label for="transport_id" class="b-input__label">Серия и номер</label>
+                                                <p class="b-input__error"></p>
+                                            </div>
+                                            <div class="b-lk__field">
+                                                <span class="b-lk__field_label">Серия и номер</span>
+                                                <span class="js-input-val-insert b-lk__field_val"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="b-lk__from-column">
+                                        <div class="js-lk-field b-lk__field-box empty">
+                                            <div class="js-input-box b-input__box">
+                                                <input id="transport_date" name="transport[date]" class="js-required js-date js-input b-input" type="text">
+                                                <label for="transport_date" class="b-input__label">Дата выдачи</label>
+                                                <p class="b-input__error"></p>
+                                            </div>
+                                            <div class="b-lk__field">
+                                                <span class="b-lk__field_label">Дата выдачи</span>
+                                                <span class="js-input-val-insert b-lk__field_val"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="b-lk__from-column">
+                                        <div class="js-lk-field b-lk__field-box empty">
+                                            <div class="js-input-box b-input__box">
+                                                <input id="transport_unit-code" name="transport[unit-code]" class="js-unit-code js-required js-input b-input" type="text">
+                                                <label for="transport_unit-code" class="b-input__label">Код подр-ния ГИБДД</label>
+                                                <p class="b-input__error"></p>
+                                            </div>
+                                            <div class="b-lk__field">
+                                                <span class="b-lk__field_label">Код подразделения ГИБДД</span>
+                                                <span class="js-input-val-insert b-lk__field_val"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="js-lk-field-file b-lk__field-box b-lk__field-box_file empty">
+                                    <div class="b-lk__field">
+                                        <span class="b-lk__field_label">Скан копии</span>
+                                    </div>
+                                    <div class="js-file-box b-input-file">
+                                        <input multiple type="file" id="transport_file" name="transport[file]" class="js-file b-input-file__input" accept="image/*">
+                                        <label class="b-input-file__label">
+                                            <span>Выберите файлы или перетащите их сюда</span>
+                                            <span>Прикрепить файл</span>
+                                        </label>
+                                        <p class="b-input-file__faq">Размер файла не должен превышать 10 мегабайт</p>
+                                        <ul class="u-clear-fix js-file-insert b-input-file__text hidden"></ul>
+                                    </div>
+                                </div>
+
+                                <div class="b-button__box">
+                                    <button type="submit" class="b-button" disabled="disabled">Сохранить</button>
+                                </div>
+
+                                <div class="js-form-error b-forms-error hidden">
+                                    Возникла ошибка.<br>Повторите попытку позже.
+                                </div>
+
+                            </div>
+                        </form>
+                    </li>
+
+                    <li class="js-lk-docs-item b-lk-docs__item empty">
+                        <div class="b-lk-docs__title">
+                            <a href="#" class="js-lk-docs-accordion-link b-lk-docs__accord-link">
+                                Паспорт транспортного средства
+                            </a>
+                            <a href="#" class="js-lk-docs-add b-lk-docs__add">
+                                <span>Добавить</span>
+                                <span>Отменить</span>
+                            </a>
+                        </div>
+                        <form class="js-lk-form-accordion js-lk-form-docs b-lk__from b-lk__from_accordion b-lk__from-5" action="http://action.php">
+                            <div class="b-lk__from-wrapper">
+
+                                <div class="u-clear-fix b-lk__from-column_box">
+                                    <div class="b-lk__from-column">
+                                        <div class="js-lk-field b-lk__field-box empty">
+                                            <div class="js-input-box b-input__box">
+                                                <input id="transportPassport_id" name="transportPassport[id]" class="js-required js-input b-input" type="text">
+                                                <label for="transportPassport_id" class="b-input__label">Серия и номер</label>
+                                                <p class="b-input__error"></p>
+                                            </div>
+                                            <div class="b-lk__field">
+                                                <span class="b-lk__field_label">Серия и номер</span>
+                                                <span class="js-input-val-insert b-lk__field_val"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="b-lk__from-column">
+                                        <div class="js-lk-field b-lk__field-box empty">
+                                            <div class="js-input-box b-input__box">
+                                                <input id="transportPassport_date" name="transportPassport[date]" class="js-required js-date js-input b-input" type="text">
+                                                <label for="transportPassport_date" class="b-input__label">Дата выдачи</label>
+                                                <p class="b-input__error"></p>
+                                            </div>
+                                            <div class="b-lk__field">
+                                                <span class="b-lk__field_label">Дата выдачи</span>
+                                                <span class="js-input-val-insert b-lk__field_val"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="js-lk-field-file b-lk__field-box b-lk__field-box_file empty">
+                                    <div class="b-lk__field">
+                                        <span class="b-lk__field_label">Скан копии</span>
+                                    </div>
+                                    <div class="js-file-box b-input-file">
+                                        <input multiple type="file" id="transportPassport_file" name="transportPassport[file]" class="js-file b-input-file__input" accept="image/*">
+                                        <label class="b-input-file__label">
+                                            <span>Выберите файлы или перетащите их сюда</span>
+                                            <span>Прикрепить файл</span>
+                                        </label>
+                                        <p class="b-input-file__faq">Размер файла не должен превышать 10 мегабайт</p>
+                                        <ul class="u-clear-fix js-file-insert b-input-file__text hidden"></ul>
+                                    </div>
+                                </div>
+
+                                <div class="b-button__box">
+                                    <button type="submit" class="b-button" disabled="disabled">Сохранить</button>
+                                </div>
+
+                                <div class="js-form-error b-forms-error hidden">
+                                    Возникла ошибка.<br>Повторите попытку позже.
+                                </div>
+
+                            </div>
+                        </form>
+                    </li>
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <footer class="js-footer b-footer">
+        <div class="b-wrapper">
+            <div class="b-footer__license">
+                Лицензии на страхование ЦБ РФ от 01.02.2016 г  СЛ № 1834, СИ № 1834, ОС №1834-03, ОС №1834-04, ОС №1834-05 Лицензия на перестрахование ЦБ РФ от 01.02.2016 г  СП № 1834   ОГРН 1027739068060
+            </div>
+            <div class="b-footer__copy">
+                Copyright © ENERGOGARANT 2009-2017. Все права защищены
+            </div>
+        </div>
+    </footer>
+
+
+    <div class="js-overlay b-overlay">
+        <a href="#" class="js-close-popup b-popup__close"></a>
+
+        <div class="js-feedback-popup js-popup b-popup b-popup__feedback">
+            <form name="feedback" class="js-feedback js-show-part-on-close b-feedback" action="http://index.php">
+                <h2>ОБРАТНАЯ СВЯЗЬ</h2>
+
+                <div class="b-dropdown__box">
+                    <div class="js-question-select b-dropdown">
+                        <span class="b-dropdown__label">Тема обращения</span>
+                        <div class="b-dropdown__arrow"></div>
+                        <span class="b-dropdown__text js-link-stop"></span>
+                        <ul class="b-dropdown__sub">
+                            <li class="b-dropdown__item">Вопрос</li>
+                            <li class="b-dropdown__item">Жалоба</li>
+                            <li class="b-dropdown__item">Благодарность</li>
+                            <li class="b-dropdown__item">Предложение</li>
+                        </ul>
+                    </div>
+                    <input class="hidden js-input-for-select b-input" id="feedback_theme" name="feedback[theme]" type="text">
+                </div>
+
+                <div class="js-input-box b-input__box">
+                    <textarea id="feedback_text" name="feedback[text]" class="js-required js-input b-input"></textarea>
+                    <label for="feedback_text" class="b-input__label">Мое обращение</label>
+                    <p class="b-input__error"></p>
+                </div>
+
+                <div class="js-file-box b-input-file">
+                    <input multiple type="file" id="feedback_file" name="feedback[file]" class="js-file b-input-file__input">
+                    <label class="b-input-file__label">
+                        <span>Выберите файлы или перетащите их сюда</span>
+                        <span>Прикрепить файл</span>
+                    </label>
+                    <p class="b-input-file__faq">Размер файла не должен превышать 10 мегабайт</p>
+                    <ul class="js-file-insert b-input-file__text hidden"></ul>
+                </div>
+
+                <div class="b-button__box">
+                    <button type="submit" class="b-button" disabled="disabled">Далее</button>
+                </div>
+
+                <div class="js-form-error b-forms-error hidden">
+                    Возникла ошибка.<br>Повторите попытку позже.
+                </div>
+
+            </form>
+            <div class="js-feedback-success js-form-success-common b-feedback__success hidden">
+                <h2>ВАШЕ СООБЩЕНИЕ ОТПРАВЛЕНО</h2>
+                <p>Спасибо! В ближайшее время мы свяжемся с вами по указанному телефону или по электронной почте.</p>
+                <div class="b-button__box">
+                    <a href="#" class="js-close-popup b-button">Вернуться на сайт</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="js-ins-case-popup js-popup b-popup b-popup__ins-case">
+            <h2>СТРАХОВОЙ СЛУЧАЙ</h2>
+            <p>Выберете полис по которому возник страховой случай</p>
+            <ul class="b-ins-case__list">
+                <li>
+                    <a href="#" class="b-ins-case__list-item">
+                        <span>9048/18</span>
+                        Добровольное медицинское страхование
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="b-ins-case__list-item">
+                        <span>BBB №7789779779</span>
+                        КАСКО Citroen C3 X234 MH 190
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="b-ins-case__list-item">
+                        <span>9048/18</span>
+                        Страховая программа Villa Design
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="js-change-pass-popup js-popup b-popup b-popup__change-pass">
+            <h2>ИЗМЕНЕНИЕ ПАРОЛЯ</h2>
+
+            <form class="js-change-pass js-show-part-on-close b-change-pass" action="http://index.php">
+                <div class="js-input-box b-input__box">
+                    <input id="changePass_current" name="changePass[current]" class="js-required js-input b-input" type="password">
+                    <label for="changePass_current" class="b-input__label">Введите старый пароль</label>
+                    <p class="b-input__error">Пароль введен не верно</p>
+                </div>
+
+                <div class="js-input-box b-input__box">
+                    <input id="changePass_new" name="changePass[new]" class="js-required js-pass js-input b-input" type="password">
+                    <label for="changePass_new" class="b-input__label">Введите новый пароль</label>
+                    <p class="b-input__error"></p>
+                    <div class="b-input__dop-text">
+                        <p>Должен включать минимум 8 символов, одну заглавная буква, цифру и буквы латинского алфавита</p>
+                    </div>
+                </div>
+
+                <div class="js-input-box b-input__box">
+                    <input id="changePass_repeat" name="changePass[repeat]" class="js-required js-pass-repeat js-input b-input" type="password">
+                    <label for="changePass_repeat" class="b-input__label">Повторите новый пароль</label>
+                    <p class="b-input__error">Пароли не совпадают</p>
+                </div>
+
+                <div class="b-button__box">
+                    <button type="submit" class="b-button" disabled="disabled">Изменить пароль</button>
+                </div>
+
+                <div class="js-form-error b-forms-error hidden">
+                    Возникла ошибка.<br>Повторите попытку позже.
+                </div>
+            </form>
+
+            <div class="js-change-pass-success js-form-success-common b-change-pass__success hidden">
+                <p>Ваш пароль был изменен.</p>
+                <div class="b-button__box">
+                    <a href="#" class="js-close-popup b-button">Вернуться на сайт</a>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+</body>
+</html>
+

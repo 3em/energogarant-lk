@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Энергогарант</title>
+
+    <link rel="stylesheet" href="css/common.css" media="all">
+
+    <script src="js/libs/jquery-3.3.1.min.js"></script>
+    <script src="js/libs/phone-mask.js"></script>
+
+    <script src="js/main.js"></script>
+    <script src="js/feedback.js"></script>
+    <script src="js/polis-payment.js"></script>
+
+</head>
+<body>
+
+    <header class="b-header">
+        <div class="u-clear-fix b-wrapper">
+            <a href="/" class="b-logo" title="Энергогарант"></a>
+            <a href="03-my-data.html" class="b-header__user">Константин К.</a>
+            <div class="u-clear-fix b-header__center">
+                <a href="#" class="js-ins-case-call b-button b-button__ins-case">Страховой случай</a>
+                <ul class="u-clear-fix b-header__menu">
+                    <li>
+                        <a href="#" class="b-header__menu-link active">Оплата полиса</a>
+                    </li>
+                    <li>
+                        <a href="#" class="js-feedback-call b-header__menu-link">Обратная связь</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="u-clear-fix b-header__right">
+                <a href="#" class="b-header__policies">мои полисы</a>
+                <a href="#" class="b-header__exit">Выйти</a>
+            </div>
+
+            <div class="js-notification b-notification">
+                <a href="#" class="js-notification-link b-notification__link">
+                    <span>2</span>
+                </a>
+
+                <ul class="b-notification__down">
+                    <li>
+                        <a href="#" class="b-notification__down-link">
+                            <span>11 августа</span>
+                            По ДТП от 10 июля назначена страховая выплата
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="b-notification__down-link">
+                            <span>11 августа</span>
+                            Срок действия полиса ДМС истекает через 6 дней
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <a href="tel:+74957370330" class="b-header__phone">8 (495) 737-03-30</a>
+        </div>
+    </header>
+
+    <a href="#" class="js-burger-call b-burger__link"></a>
+
+    <div class="js-mob-menu b-mob-menu">
+        <a href="#" class="b-mob-menu__logo"></a>
+
+        <a href="03-my-data.html" class="b-mob-menu__user"><span>Константин К.</span></a>
+
+        <ul class="u-clear-fix b-mob-menu__menu">
+            <li>
+                <a href="#" class="b-mob-menu__menu-link">Список полисов</a>
+            </li>
+            <li>
+                <a href="#" class="b-mob-menu__menu-link active">Оплата полиса</a>
+            </li>
+            <li>
+                <a href="#" class="js-feedback-call b-mob-menu__menu-link">Обратная связь</a>
+            </li>
+            <li>
+                <a href="#" class="b-mob-menu__menu-link">Выйти</a>
+            </li>
+        </ul>
+
+        <a href="#" class="js-ins-case-call b-button b-button__ins-case">Страховой случай</a>
+
+    </div>
+
+    <div class="b-content">
+
+        <div class="b-wrapper b-wrapper_narrow">
+            <h1>ОПЛАТА ПОЛИСА</h1>
+
+            <form action="http://index.php" class="js-first-polis-payment b-polis-payment b-polis-payment_first">
+
+                <div class="js-polis-dropdown b-dropdown__box">
+                    <div class="b-dropdown b-dropdown_open">
+                        <span class="b-dropdown__label">Выберите полис</span>
+                        <div class="b-dropdown__arrow"></div>
+                        <span class="b-dropdown__text js-link-stop"></span>
+                        <ul class="b-dropdown__sub">
+                            <li data-letter="9048/18" class="b-dropdown__item">Добровольное медицинское страхование</li>
+                            <li data-letter="BBB №7789779779" class="b-dropdown__item">КАСКО</li>
+                            <li class="b-dropdown__item">Другой полис</li>
+                        </ul>
+                    </div>
+                    <input class="hidden js-required js-input-for-select b-input" id="polisPayment_polis" name="polisPayment[polis]" type="text">
+                </div>
+
+                <div class="js-another-polis hidden">
+                    <div class="js-input-box b-input__box">
+                        <input id="polisPayment_anotherPolis" name="polisPayment[anotherPolis]" class="js-input b-input" type="text">
+                        <label for="polisPayment_anotherPolis" class="b-input__label">Номер полиса</label>
+                        <p class="b-input__error"></p>
+                    </div>
+
+                    <div class="b-button__box">
+                        <button type="submit" class="b-button" disabled="disabled">Далее</button>
+                    </div>
+                </div>
+
+                <div class="js-form-error b-forms-error hidden">
+                    Возникла ошибка.<br>Повторите попытку позже.
+                </div>
+            </form>
+
+            <form action="http://index.php" class="js-second-polis-payment b-polis-payment b-polis-payment_second hidden">
+                <h3>ДАННЫЕ ПОЛИСА</h3>
+
+                <input type="text" class="hidden js-polis-number-input" name="polisPayment[polisNumber]" id="polisPayment_polisNumber">
+
+                <div class="js-input-box b-input__box">
+                    <input id="polisPayment_surname" name="polisPayment[surname]" class="js-required js-input b-input" type="text">
+                    <label for="polisPayment_surname" class="b-input__label">Моя фамилия</label>
+                    <p class="b-input__error"></p>
+                </div>
+                <div class="js-input-box b-input__box">
+                    <input id="polisPayment_name" name="polisPayment[name]" class="js-required js-input b-input" type="text">
+                    <label for="polisPayment_name" class="b-input__label">Мое имя</label>
+                    <p class="b-input__error"></p>
+                </div>
+                <div class="js-input-box b-input__box">
+                    <input id="polisPayment_secondName" name="polisPayment[secondName]" class="js-required js-input b-input" type="text">
+                    <label for="polisPayment_secondName" class="b-input__label">Мой отчество</label>
+                    <p class="b-input__error"></p>
+                </div>
+                <div class="js-input-box b-input__box">
+                    <input id="polisPayment_phone" name="polisPayment[phone]" class="js-required js-input js-phone-input b-input" type="text">
+                    <label for="polisPayment_phone" class="b-input__label">Мой номер телефона</label>
+                    <p class="b-input__error"></p>
+                </div>
+                <div class="js-input-box b-input__box">
+                    <input id="polisPayment_email" name="polisPayment[email]" class="js-required js-input js-email-input b-input" type="email">
+                    <label for="polisPayment_email" class="b-input__label">Мой e-mail</label>
+                    <p class="b-input__error"></p>
+                </div>
+
+                <div class="b-polis-payment__bottom-box">
+                    <h3>ДОСТУПНЫЕ ПЛАТЕЖИ</h3>
+
+                    <div class="b-polis-payment__bottom">
+
+                        <div class="js-period-dropdown b-dropdown__box hidden">
+                            <div class="b-dropdown">
+                                <span class="b-dropdown__label">Период оплаты</span>
+                                <div class="b-dropdown__arrow"></div>
+                                <span class="b-dropdown__text js-link-stop"></span>
+                                <ul class="b-dropdown__sub"></ul>
+                            </div>
+                            <input class="hidden js-input-for-select b-input" id="polisPayment_period" name="polisPayment[period]" type="text">
+                        </div>
+
+                        <div class="u-clear-fix b-polis-payment__price-box">
+                            <span class="js-price-text-insert">Итого к оплате</span>
+                            <h3 class="js-price-insert"></h3>
+                            <input type="text" class="hidden js-price-input-insert" name="polisPayment[price]" id="polisPayment_price">
+                        </div>
+
+                        <div class="b-button__box">
+                            <button type="submit" class="b-button" disabled="disabled">Далее</button>
+                        </div>
+                        <div class="js-form-error b-forms-error hidden">
+                            Возникла ошибка.<br>Повторите попытку позже.
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+    <footer class="js-footer b-footer">
+        <div class="b-wrapper">
+            <div class="b-footer__license">
+                Лицензии на страхование ЦБ РФ от 01.02.2016 г  СЛ № 1834, СИ № 1834, ОС №1834-03, ОС №1834-04, ОС №1834-05 Лицензия на перестрахование ЦБ РФ от 01.02.2016 г  СП № 1834   ОГРН 1027739068060
+            </div>
+            <div class="b-footer__copy">
+                Copyright © ENERGOGARANT 2009-2017. Все права защищены
+            </div>
+        </div>
+    </footer>
+
+    <div class="js-overlay b-overlay">
+        <a href="#" class="js-close-popup b-popup__close"></a>
+
+        <div class="js-feedback-popup js-popup b-popup b-popup__feedback">
+            <form name="feedback" class="js-feedback js-show-part-on-close b-feedback" action="http://index.php">
+                <h2>ОБРАТНАЯ СВЯЗЬ</h2>
+
+                <div class="b-dropdown__box">
+                    <div class="js-question-select b-dropdown">
+                        <span class="b-dropdown__label">Тема обращения</span>
+                        <div class="b-dropdown__arrow"></div>
+                        <span class="b-dropdown__text js-link-stop"></span>
+                        <ul class="b-dropdown__sub">
+                            <li class="b-dropdown__item">Вопрос</li>
+                            <li class="b-dropdown__item">Жалоба</li>
+                            <li class="b-dropdown__item">Благодарность</li>
+                            <li class="b-dropdown__item">Предложение</li>
+                        </ul>
+                    </div>
+                    <input class="hidden js-input-for-select b-input" id="feedback_theme" name="feedback[theme]" type="text">
+                </div>
+
+                <div class="js-input-box b-input__box">
+                    <textarea id="feedback_text" name="feedback[text]" class="js-required js-input b-input"></textarea>
+                    <label for="feedback_text" class="b-input__label">Мое обращение</label>
+                    <p class="b-input__error"></p>
+                </div>
+
+                <div class="js-file-box b-input-file">
+                    <input multiple type="file" id="feedback_file" name="feedback[file]" class="js-file b-input-file__input">
+                    <label class="b-input-file__label">
+                        <span>Выберите файлы или перетащите их сюда</span>
+                        <span>Прикрепить файл</span>
+                    </label>
+                    <p class="b-input-file__faq">Размер файла не должен превышать 10 мегабайт</p>
+                    <ul class="js-file-insert b-input-file__text hidden"></ul>
+                </div>
+
+                <div class="b-button__box">
+                    <button type="submit" class="b-button" disabled="disabled">Далее</button>
+                </div>
+
+                <div class="js-form-error b-forms-error hidden">
+                    Возникла ошибка.<br>Повторите попытку позже.
+                </div>
+
+            </form>
+            <div class="js-feedback-success js-form-success-common b-feedback__success hidden">
+                <h2>ВАШЕ СООБЩЕНИЕ ОТПРАВЛЕНО</h2>
+                <p>Спасибо! В ближайшее время мы свяжемся с вами по указанному телефону или по электронной почте.</p>
+                <div class="b-button__box">
+                    <a href="#" class="js-close-popup b-button">Вернуться на сайт</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="js-ins-case-popup js-popup b-popup b-popup__ins-case">
+            <h2>СТРАХОВОЙ СЛУЧАЙ</h2>
+            <p>Выберете полис по которому возник страховой случай</p>
+            <ul class="b-ins-case__list">
+                <li>
+                    <a href="#" class="b-ins-case__list-item">
+                        <span>9048/18</span>
+                        Добровольное медицинское страхование
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="b-ins-case__list-item">
+                        <span>BBB №7789779779</span>
+                        КАСКО Citroen C3 X234 MH 190
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="b-ins-case__list-item">
+                        <span>9048/18</span>
+                        Страховая программа Villa Design
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+</body>
+</html>
+
