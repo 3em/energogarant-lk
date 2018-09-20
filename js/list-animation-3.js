@@ -122,8 +122,8 @@ $(function () {
 
   function onDocumentMouseMove( event ) {
 
-    mouseX = ( event.clientX - windowHalfX ) / 2;
-    mouseY = ( event.clientY - windowHalfY ) / 2;
+    mouseX = ( event.clientX - windowHalfX ) / 6;
+    mouseY = ( event.clientY - windowHalfY ) / 6;
 
   }
 

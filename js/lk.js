@@ -218,8 +218,14 @@ $(function () {
    * @param $form - form dom
    */
   function chkform($form) {
+    var emailMask = /^([\w\!\#$\%\&\'\*\+\-\/\=\?\^\`{\|\}\~]+\.)*[\w\!\#$\%\&\'\*\+\-\/\=\?\^\`{\|\}\~]+@((((([a-zA-Z0-9]{1}[a-zA-Z0-9\-]{0,62}[a-zA-Z0-9]{1})|[a-zA-Z])\.)+[a-zA-Z]{2,6})|(\d{1,3}\.){3}\d{1,3}(\:\d{1,5})?)$/;
+    var validEmail = emailMask.test($('.js-email-input', $form).val());
 
     if ($('.js-required.js-filled', $form).length < $('.js-required', $form).length) {
+      $('.b-button', $form).attr('disabled', 'disabled');
+    } else if ($('.js-phone-input', $form).val().length < 17) {
+      $('.b-button', $form).attr('disabled', 'disabled');
+    } else if (!validEmail){
       $('.b-button', $form).attr('disabled', 'disabled');
     } else {
       $('.b-button', $form).removeAttr('disabled');
