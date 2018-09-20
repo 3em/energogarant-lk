@@ -169,7 +169,7 @@ $(function () {
   /**
    * user pic behaviour
    */
-  $userpicInput.on('dragenter focus', function() {
+  $userpicInput.on('dragenter', function() {
     var $thisBox = $(this).closest('.js-userpic-box');
     $thisBox.addClass('drag');
   });

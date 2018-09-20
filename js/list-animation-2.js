@@ -10,9 +10,10 @@ $(function () {
   var container = $('.js-3d-model-2');
   var url3d = container.attr('data-url');
 
-
-  init();
-  animate();
+  if (container.length){
+    init();
+    animate();
+  }
 
 
   function init() {
@@ -86,7 +87,7 @@ $(function () {
       objLoader.setPath( '/energogarant-lk/js/obj/' );
       objLoader.load( url3d+'.obj', function ( object ) {
 
-        object.position.y = - 95;
+        object.position.y = - 20;
         scene.add( object );
 
       }, onProgress, onError );

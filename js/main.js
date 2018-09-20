@@ -21,7 +21,27 @@ $(function () {
   var windowWidth = $(window).width();
   var $popupShowBoxOnClose = $('.js-show-part-on-close');
   var $scrollTo = $('.js-scroll-to');
+  var $header = $('.js-header');
+  var MAGIC_HEADER_OFFSET = 100;
 
+  /**
+   * show burger call when scroll under header
+   */
+  function showBurgerScroll() {
+    var scrollTop = $(window).scrollTop();
+    var heightHeader = $header.height();
+
+    if (windowWidth > 767 && scrollTop > heightHeader + MAGIC_HEADER_OFFSET && !$burgerCall.hasClass('show')){
+      $burgerCall.addClass('show');
+    } else if (windowWidth > 767 && scrollTop <= heightHeader + MAGIC_HEADER_OFFSET && $burgerCall.hasClass('show')){
+      $burgerCall.removeClass('show');
+    }
+  }
+  showBurgerScroll();
+
+  /**
+   * common scroll to link
+   */
   $scrollTo.on('click', function (e) {
     e.preventDefault();
 
@@ -37,7 +57,7 @@ $(function () {
 
     $(this).toggleClass('open');
     $mobMenu.toggleClass('show');
-    $body.toggleClass('overflow');
+    $body.toggleClass('overflow open-burger');
   });
 
   /**
@@ -77,7 +97,7 @@ $(function () {
     if (e.which == 27 && $burgerCall.hasClass('open')) {
       $burgerCall.removeClass('open');
       $mobMenu.removeClass('show');
-      $body.removeClass('overflow');
+      $body.removeClass('overflow open-burger');
     }
   });
 
@@ -127,7 +147,8 @@ $(function () {
   /**
    * inputs placeholder move
    */
-  $input.on('keyup paste change input', function () {
+  $(document).on('keyup paste change input', '.js-input', function () {
+
     var $parent = $(this).closest('.js-input-box');
     if ($(this).val() != '' && !$parent.hasClass('shifted')){
       $parent.addClass('shifted');
@@ -305,6 +326,11 @@ $(function () {
   $(window).on('resize', function () {
     setFooterShiftToBody();
     windowWidth = $(window).width();
+    showBurgerScroll();
+  });
+
+  $(window).on('scroll', function () {
+    showBurgerScroll();
   });
 
 });
@@ -349,7 +375,7 @@ showErrorFields= function ($this, error){
   // example of error
   // key - это id инпута
   // value - текст ошибки или пустая строка, если нет ошибки
-
+  console.log('error');
   var error = {
     'enter_phone': 'Неверный номер телефона',
     'enter_pass': ''

@@ -32,7 +32,7 @@ body{
 
   &.overflow{
     overflow: hidden;
-    height: 100%;
+    min-height: 100%;
   }
 }
 .hidden{
@@ -88,7 +88,10 @@ h3{
 h4{
   font-size: 22px;
 }
-
+h6{
+  font-size: 22px;
+  line-height: 31px;
+}
 // TEXT //
 .b-text{
 
@@ -222,6 +225,7 @@ h4{
   letter-spacing: .1em;
   color: $regularColor;
   z-index: 9;
+  display: none;
 
   &:hover,
   &.active{
@@ -553,7 +557,44 @@ h4{
   padding-top: 13px;
   margin-bottom: 22px;
 
+  .b-input-file__drag{
+    position: fixed;
+    display: none;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(70,70,70, .9);
+
+    &:before{
+      content: "Перетащите файлы сюда";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      color: #fff;
+      padding-top: 52px;
+      transform: translate(-50%,-50%);
+      text-align: center;
+      background: url("../i/i-file-drag.svg") no-repeat center top;
+      background-size: 31px 36px;
+    }
+  }
+
   &.drag{
+
+    .b-input-file__input{
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      height: 100%;
+      z-index: 11;
+    }
+
+    .b-input-file__drag{
+      display: block;
+    }
+
     .b-input-file__label{
       border-bottom-color: $regularColor;
     }
@@ -913,16 +954,23 @@ h4{
 }
 
 .b-burger__link{
-  position: absolute;
+  position: fixed;
   right: 10px;
   top: 0;
   height: $headerHeight;
   width: 60px;
-  z-index: 10;
   background: url("../i/i-burger.svg") no-repeat center;
   background-size: 20px auto;
-  display: none;
+  visibility: hidden;
+  opacity: 0;
   z-index: 11;
+  transition: opacity .25s, visibility .25s 0s;
+
+  &.show{
+    opacity: 1;
+    visibility: visible;
+    transition: opacity .25s, visibility 0s 0s;
+  }
 
   &.open{
     background: url("../i/i-close-popup.svg") no-repeat center;
@@ -1232,6 +1280,68 @@ h4{
   }
 }
 
+.b-checkbox__box{
+  position: relative;
+  margin-bottom: 8px;
+
+  .b-checkbox__input{
+    position: absolute;
+    left: -100%;
+    top: -100%;
+    width: 0;
+    height: 0;
+    visibility: hidden;
+
+    &:checked+.b-checkbox__label{
+      .b-checkbox__icon{
+        background: $linkColor;
+
+        &:before{
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  .b-checkbox__label{
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    cursor: pointer;
+    padding-left: 30px;
+    transition: color .25s;
+
+    .b-checkbox__icon{
+      position: absolute;
+      left: 0;
+      top: 7px;
+      width: 17px;
+      height: 17px;
+      border-radius: 3px;
+      box-shadow: 0 10px 20px rgba(0,0,0, .04);
+      background: rgba(0,0,0, .05);
+      transition: background .25s;
+
+      &:before{
+        content: "";
+        position: absolute;
+        left: 51%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        width: 10px;
+        height: 6px;
+        background: url("../i/i-checkbox-checked.svg") no-repeat;
+        background-size: 100% auto;
+        opacity: 0;
+      }
+    }
+
+    &:hover{
+      color: $linkColor;
+    }
+  }
+}
+
 input[type=number]::-webkit-inner-spin-button,
 input[type=time]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button,
@@ -1255,7 +1365,8 @@ input[type="time"]::-ms-clear {
   }
 
   .b-burger__link{
-    display: block;
+    opacity: 1;
+    visibility: visible;
     height: 60px;
   }
 
@@ -1283,6 +1394,28 @@ input[type="time"]::-ms-clear {
   body{
     font-size: $mobRegularFS;
     line-height: $mobRegularFLH;
+
+    &.open-burger{
+      &:before{
+        opacity: 1;
+        visibility: visible;
+        transition: opacity .25s, visibility 0s 0s;
+      }
+    }
+
+    &:before{
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 8;
+      opacity: 0;
+      visibility: hidden;
+      background: rgba(0,0,0, .6);
+      transition: opacity .25s, visibility .25s 0s;
+    }
   }
 
   .mob-hidden{
@@ -1317,6 +1450,10 @@ input[type="time"]::-ms-clear {
     margin-bottom: 15px;
   }
   h4{
+    font-size: 18px;
+    line-height: 31px;
+  }
+  h6{
     font-size: 18px;
     line-height: 31px;
   }

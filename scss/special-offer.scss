@@ -6,6 +6,10 @@ body{
       left: 0;
       right: 0;
       z-index: 6;
+
+      .b-header__policies{
+        display: none;
+      }
     }
 
     .b-content{
@@ -24,12 +28,19 @@ body{
     vertical-align: top;
     width: 50%;
     min-height: 500px;
+    max-height: 800px;
     z-index: 1;
 
-    &.vertical{
-      width: 100%;
-      min-height: 0;
-      height: auto !important;
+    &[data-status="inactive"]{
+      .b-offer-list__link{
+        .b-offer-list__inactive{
+          display: inline-block;
+        }
+      }
+    }
+
+    &.single{
+      max-height: none !important;
     }
 
     &:hover{
@@ -81,20 +92,8 @@ body{
   transition: box-shadow .35s;
 
   &:hover{
-    &.b-offer-list__link_1{
-      .b-offer-list__pic{
-        transform: scale(1.2);
-      }
-    }
-    &.b-offer-list__link_2{
-      .b-offer-list__pic{
-        transform: scale(1.2);
-      }
-    }
-    &.b-offer-list__link_3{
-      .b-offer-list__pic{
-        transform: scale(1.1);
-      }
+    .b-offer-list__pic{
+      transform: scale(1.1);
     }
   }
 
@@ -140,10 +139,24 @@ body{
   .b-offer-list__number{
     font-size: 20px;
     font-family: $futura_Demi;
-    display: block;
+    display: inline-block;
+    vertical-align: top;
     margin-bottom: 30px;
-
   }
+
+  .b-offer-list__inactive{
+    vertical-align: top;
+    margin-left: 22px;
+    background: $linkColor;
+    color: #fff;
+    font-family: $futura_Demi;
+    font-size: 22px;
+    text-transform: uppercase;
+    padding: 7px 13px;
+    margin-top: -7px;
+    display: none;
+  }
+
   h2{
     font-size: 30px;
     line-height: 47px;
@@ -165,8 +178,8 @@ body{
   }
   &.b-offer-list__link_2{
     .b-offer-list__pic{
-      top: 15%;
-      left: 0%;
+      top: -10%;
+      left: 0;
       right: 0;
       height: auto;
 
@@ -178,13 +191,13 @@ body{
   }
   &.b-offer-list__link_3{
     .b-offer-list__pic{
-      top: -15%;
+      top: -10%;
       left: 0;
       right: 0;
       height: auto;
 
       canvas{
-        width: 150% !important;
+        width: 200% !important;
         height: auto !important;
       }
     }
@@ -381,6 +394,30 @@ body{
   }
 }
 
+.b-offer-list-carousel__type{
+  position: absolute;
+  top: 55px;
+  left: 10%;
+  right: 10%;
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 20px;
+  line-height: 31px;
+  font-family: $futura_Demi;
+  padding-left: 20px;
+  z-index: 10;
+
+  &:before{
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 0;
+    bottom: 3px;
+    width: 6px;
+    background: $linkColor;
+  }
+}
+
 .b-offer-list-carousel__link{
   display: block;
   height: 100%;
@@ -411,29 +448,6 @@ body{
     transition: opacity .35s;
   }
 
-  .b-offer-list-carousel__type{
-    position: absolute;
-    top: 55px;
-    left: 10%;
-    right: 10%;
-    text-transform: uppercase;
-    color: #fff;
-    font-size: 20px;
-    line-height: 31px;
-    font-family: $futura_Demi;
-    padding-left: 20px;
-
-    &:before{
-      content: "";
-      position: absolute;
-      top: 3px;
-      left: 0;
-      bottom: 3px;
-      width: 6px;
-      background: $linkColor;
-    }
-  }
-
   .b-offer-list-carousel__text{
     position: absolute;
     bottom: 70px;
@@ -454,42 +468,15 @@ body{
 }
 .b-offer-list__item.second{
   .b-offer-list-carousel__type{
-    top: auto;
-    bottom: 100%;
-    margin-bottom: 20px;
-    left: -6px;
-    right: 0;
-    padding-left: 35px;
+    top: 120px;
   }
 }
-.b-offer-list__item.vertical{
-  .b-offer-list-carousel__link{
-    padding: 80px 5%;
-
-    .b-offer-list-carousel__type{
-      left: 5%;
-      width: 45%;
-      top: 80px;
-    }
-
-    .b-offer-list-carousel__text{
-      float: right;
-      position: relative;
-      left: auto;
-      right: auto;
-      bottom: auto;
-      width: 45%;
-    }
-  }
-}
-
 
 body{
   &.offer-page{
 
     .b-content{
       padding-top: 0;
-      //margin-bottom: 0;
     }
 
     .b-header{
@@ -500,6 +487,10 @@ body{
       z-index: 6;
     }
 
+    .b-header__policies{
+      display: block;
+    }
+
     .b-header__menu,
     .b-notification,
     .b-header__exit{
@@ -507,7 +498,8 @@ body{
     }
 
     .b-burger__link{
-      display: block;
+      visibility: visible;
+      opacity: 1;
     }
 
     .b-content{
@@ -524,6 +516,7 @@ body{
   padding: 0 5%;
   background: #fff;
   min-height: 500px;
+  max-height: 800px;
   box-shadow: 0 20px 100px rgba(0,0,0, .1);
 
   &.time-alert{
@@ -536,7 +529,8 @@ body{
   }
 
   h1{
-    width: 70%;
+    font-size: 52px;
+    line-height: 67px;
   }
 
   .b-offer-top__title-text{
@@ -566,6 +560,7 @@ body{
   padding: $headerHeight 5% 0;
   border-bottom: 1px solid $borderColor;
   min-height: 500px;
+  max-height: 800px;
 
   .b-offer-nav__item{
     position: relative;
@@ -586,6 +581,7 @@ body{
 }
 .b-offer-bg{
   position: absolute;
+  max-height: 800px;
 
   canvas{
     position: absolute;
@@ -713,30 +709,60 @@ body{
   box-shadow: 0 0 100px rgba(0,0,0, .1);
   height: 100%;
   max-height: 600px;
-  padding-top: 40px;
   overflow-x: hidden;
 
-  h3{
-    text-align: right;
-    margin-right: 10%;
+  .b-clinics__title{
+    position: relative;
+    padding: 40px 10% 12px;
+    box-shadow: 0 10px 20px rgba(0,0,0, .05);
+
+    h3{
+      float: left;
+      vertical-align: top;
+      padding-right: 10px;
+      margin-right: 23px;
+      position: relative;
+
+      &:before{
+        content: "/";
+        position: absolute;
+        left: 100%;
+        top: 0;
+      }
+    }
+
+    .b-clinics__city{
+      font-size: 25px;
+      line-height: 32px;
+      text-transform: uppercase;
+      font-family: $futura_Demi;
+    }
   }
 }
 
 .b-clinics-list{
   position: relative;
-  padding-top: 12px;
 
   .b-clinics-list__item{
     position: relative;
-    padding: 30px 40% 28px 10%;
+    padding: 30px 40% 26px 10%;
     border-top: 1px solid $borderColor;
+
+    &:first-child{
+      border-top: none;
+    }
 
     &:last-child{
       border-bottom: 1px solid $borderColor;
     }
 
-    h4{
-      margin-bottom: -6px;
+    h6{
+      margin-bottom: -4px;
+    }
+
+    span{
+      display: block;
+      opacity: .4;
     }
 
     .b-clinics-list__tel{
@@ -797,29 +823,6 @@ body{
   }
 }
 
-.b-clinics__tabs{
-  float: right;
-  vertical-align: top;
-  display: none;
-
-  li{
-    float: left;
-    vertical-align: top;
-    margin-left: 30px;
-  }
-
-  a{
-    display: block;
-    color: $regularColor;
-    padding: 23px 0 15px;
-    border-bottom: 3px solid transparent;
-
-    &.active{
-      border-color: $linkColor;
-    }
-  }
-}
-
 .b-offer-payment{
   border-top: 1px solid $borderColor;
 
@@ -836,12 +839,19 @@ body{
 
   .b-offer-payment__list-item{
     position: relative;
-    box-shadow: 0 3px 30px rgba(8,8,8, .1);
     padding: 39px 5% 38px;
+    border-top: 1px solid $borderColor;
+    transition: box-shadow .25s ,border-color .25s;
 
-    &:nth-child(2n){
-      box-shadow: none;
+    &:hover{
+      border-top-color: transparent;
+      box-shadow: 0 3px 30px rgba(8,8,8, .1);
+
+      &+.b-offer-payment__list-item{
+        border-top-color: transparent;
+      }
     }
+
   }
 
   .b-offer-payment__title{
@@ -929,6 +939,428 @@ body{
 
 }
 
+
+.b-filter__box{
+  position: absolute;
+  z-index: 5;
+  left: 30px;
+  top: 115px;
+
+  .b-filter__call{
+    display: block;
+    width: 40px;
+    height: 54px;
+    position: relative;
+    background: url("../i/i-filter.svg") no-repeat left center;
+    background-size: 21px auto;
+  }
+
+  &.open{
+    .b-filter{
+      visibility: visible;
+      opacity: 1;
+      transition: visibility .0s, opacity .25s;
+    }
+  }
+
+  .b-filter{
+    position: absolute;
+    top: 0;
+    left: 100%;
+    font-size: 22px;
+    background: #fff;
+    box-shadow: 0 20px 100px rgba(0,0,0, .1);
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility .25s 0s, opacity .25s;
+
+    .b-filter__link{
+      color: $regularColor;
+      display: block;
+      line-height: 54px;
+      padding: 0 30px;
+      border-left: 2px solid transparent;
+      transition: border-color .25s;
+
+      &:hover{
+        color: $linkColor;
+      }
+
+      &.active{
+        border-left-color: $linkColor;
+      }
+    }
+
+  }
+}
+
+.b-tooltip{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  min-height: 100%;
+  z-index: 3;
+  background: #fff;
+  visibility: hidden;
+  transform: translate(-100%, 0);
+  transition: transform .5s, visibility .5s 0s;
+  backface-visibility: hidden;
+
+  &.open{
+    visibility: visible;
+    transform: translate(0, 0);
+    transition: transform .5s, visibility 0s;
+  }
+
+  &:before{
+    content: "";
+    position: absolute;
+    top: 108px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    box-shadow: 0 0 100px rgba(0,0,0, .1);
+    border-right: 3px solid $linkColor;
+    z-index: 2;
+  }
+
+  .b-tooltip__top{
+    padding: 40px 10% 37px;
+    z-index: 1;
+    position: relative;
+
+    a{
+      position: relative;
+      display: inline-block;
+      vertical-align: top;
+      padding-left: 30px;
+      margin-left: -4px;
+
+      &:before{
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translate(0, -50%) rotate(-90deg);
+        width: 20px;
+        height: 10px;
+        background: url("../i/i-accordion-docs.svg") no-repeat;
+      }
+    }
+  }
+
+  .b-tooltip__text{
+    ul{
+      opacity: .4;
+
+      li{
+        padding-left: 27px;
+        position: relative;
+
+        &:before{
+          content: "—";
+          position: absolute;
+          left: 0;
+          top: -2px;
+        }
+      }
+    }
+  }
+
+  .b-tooltip__urls{
+    margin-top: 30px;
+
+    li{
+      padding: 18px 0 19px;
+      border-top: 1px solid $borderColor;
+
+      &:last-child{
+        border-bottom: 1px solid $borderColor;
+      }
+    }
+  }
+
+  .b-tooltip__body{
+    z-index: 3;
+    position: relative;
+    padding: 58px 10% 40px;
+
+    h6{
+      font-family: $futura_Demi;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .b-tooltip__address{
+      opacity: .4;
+    }
+
+    .b-tooltip__phone{
+      color: $regularColor;
+      display: inline-block;
+      vertical-align: top;
+      margin: 10px 0;
+    }
+  }
+}
+
+.b-clinics-filter-call{
+  position: absolute;
+  right: 30px;
+  top: 50%;
+  transform: translate(0, -50%);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+
+  &:before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("../i/i-filter.svg") no-repeat center 54%;
+    background-size: 21px auto;
+  }
+
+  span{
+    position: absolute;
+    bottom: -5px;
+    right: -5px;
+    width: 21px;
+    height: 21px;
+    border-radius: 50%;
+    background: $linkColor;
+    border: 3px solid #fff;
+    box-sizing: border-box;
+    color: #fff;
+    text-align: center;
+    font-size: 11px;
+    line-height: 15px;
+    display: none;
+  }
+
+  &.active{
+    background: $linkColor;
+    box-shadow: 0 20px 20px rgba(255,65,65, .2);
+    
+    &:before{
+      background-image: url("../i/i-filter_white.svg");
+    }
+
+    span{
+      display: block;
+    }
+  }
+}
+
+.b-tooltip.b-clinics-filter__box{
+
+  .b-tooltip__body{
+    padding-top: 44px;
+    padding-bottom: 30px;
+  }
+
+  .b-tooltip__top{
+    a{
+      padding: 0;
+      margin: 0;
+
+      &:before{
+        display: none;
+      }
+    }
+
+    .b-clinics-filter__close{
+      position: absolute;
+      right: 30px;
+      top: 50%;
+      transform: translate(0, -50%);
+      width: 44px;
+      height: 44px;
+      background: url("../i/i-close-popup.svg") no-repeat center;
+      background-size: 24px;
+      transition: opacity .25s;
+
+      &:hover{
+        opacity: .8;
+      }
+    }
+  }
+
+  .b-checkbox__box_main{
+    margin-bottom: 20px;
+
+    h6{
+      margin-bottom: 0;
+    }
+  }
+}
+
+.b-clinics-filter__section{
+  margin-bottom: 47px;
+
+  &:last-child{
+    margin-bottom: 0;
+  }
+}
+
+.b-city-choose{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  min-height: 100%;
+  z-index: 3;
+  background: #fff;
+  visibility: hidden;
+  transform: translate(-100%, 0);
+  transition: transform .5s, visibility .5s 0s;
+  backface-visibility: hidden;
+
+  &.open{
+    visibility: visible;
+    transform: translate(0, 0);
+    transition: transform .5s, visibility 0s;
+  }
+}
+
+.b-city-choose__close{
+  position: absolute;
+  right: 10%;
+  margin-right: -8px;
+  top: 40px;
+  width: 44px;
+  height: 44px;
+  background: url("../i/i-close-popup.svg") no-repeat center;
+  background-size: 24px;
+  transition: opacity .25s;
+  z-index: 4;
+
+  &:hover{
+    opacity: .8;
+  }
+}
+
+.b-city-choose__wrapper{
+  padding: 0 10%;
+  position: relative;
+
+  .ui-widget{
+    font-family: $futura_Book;
+    font-size: $regularFS;
+    line-height: $regularFLH;
+  }
+
+  .b-input__box{
+    margin-top: 28px;
+
+    .b-input{
+      padding-bottom: 33px;
+    }
+  }
+
+  .ui-autocomplete{
+    top: 0 !important;
+    width: 100% !important;
+    margin-top: 25px;
+    border: none;
+  }
+
+  .ui-menu-item-wrapper{
+    padding: 8px 0;
+    border: none;
+    outline: none;
+
+    &.ui-state-active{
+      border: none;
+      outline: none;
+      background: none;
+      color: $linkColor;
+    }
+  }
+}
+
+@media screen and (max-width: 1699px){
+  .b-offer-list__item.vertical{
+    width: 100%;
+    min-height: 0;
+    height: auto !important;
+
+    .b-offer-list-carousel__type{
+      left: 5%;
+      width: 45%;
+      top: 80px;
+    }
+
+    .b-offer-list-carousel__link{
+      padding: 80px 5%;
+
+      .b-offer-list-carousel__text{
+        float: right;
+        position: relative;
+        left: auto;
+        right: auto;
+        bottom: auto;
+        width: 45%;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1700px){
+  .b-offer-list .b-offer-list__item{
+    width: 33.333%;
+
+    &.single{
+      width: 50% !important;
+    }
+
+    &:last-child{
+      &.vertical{
+        width: 33.333%;
+      }
+
+      &:not(.vertical){
+        &:not(.single) {
+          width: 100%;
+
+          .b-offer-list-carousel__type {
+            left: 5%;
+            width: 45%;
+            top: 80px;
+          }
+
+          .b-offer-list-carousel__link {
+            padding: 80px 5%;
+
+            .b-offer-list-carousel__text {
+              float: right;
+              position: relative;
+              left: auto;
+              right: auto;
+              bottom: auto;
+              width: 45%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1200px){
+  .b-ins-steps__list .b-ins-steps__list-item{
+    padding: 105px 3.5% 0;
+
+    &:before{
+      left: 10%;
+    }
+  }
+}
+
 @media screen and (max-width: 1000px){
   .b-ins-steps{
     height: auto !important;
@@ -953,10 +1385,6 @@ body{
   .b-offer-nav{
     border-bottom: none;
   }
-  .b-clinics__list-box h3{
-    margin-left: 10%;
-    text-align: left;
-  }
   .b-clinics-list .b-clinics-list__item{
     padding-right: 10%;
 
@@ -964,6 +1392,12 @@ body{
       position: relative;
       right: auto;
       top: 0;
+    }
+  }
+  .b-offer-top__title{
+    h1{
+      font-size: 35px;
+      line-height: 50px;
     }
   }
 }
@@ -998,6 +1432,8 @@ body{
     }
   }
   .b-offer-bg{
+    overflow: hidden;
+
     &.b-offer-bg__1,
     &.b-offer-bg__2{
       top: 0;
@@ -1015,13 +1451,54 @@ body{
 
 }
 
+@media screen and (min-width: 768px){
+  .b-clinics-map__box,
+  .b-city-choose{
+    height: auto !important;
+  }
+}
+
 @media screen and (max-width: 767px){
+
+  .b-offer-list-carousel .slick-list, .b-offer-list-carousel .slick-track{
+    height: 100% !important;
+  }
+
+  .b-filter__box{
+    left: 5%;
+    top: 60px;
+
+    .b-filter__call{
+      height: 40px;
+    }
+
+    .b-filter{
+      font-size: 18px;
+
+      .b-filter__link{
+        line-height: 40px;
+        padding: 0 15px;
+      }
+    }
+  }
+
   .b-offer-list .b-offer-list__item{
     border-top: 1px solid $borderColor;
     min-height: 350px;
+    max-height: 500px;
+
+    &:first-child{
+      border-top: none;
+    }
   }
   .b-offer-list__link{
     box-shadow: none !important;
+
+    .b-offer-list__inactive{
+      font-size: 18px;
+      padding: 4px 10px;
+      margin-top: -4px;
+    }
 
     &.b-offer-list__link_1 .b-offer-list__pic{
       transform: none !important;
@@ -1043,6 +1520,17 @@ body{
         top: 100%;
       }
     }
+    &.b-offer-list__link_2 .b-offer-list__pic{
+      top: 0;
+      bottom: 0;
+
+      canvas{
+        width: 100% !important;
+        top: 60%;
+        left: 78%;
+        transform: translate(-50%, -50%);
+      }
+    }
     &.b-offer-list__link_3 .b-offer-list__pic{
       top: 0;
       height: 100%;
@@ -1062,7 +1550,7 @@ body{
     }
 
     .b-offer-list__title{
-      top: 100px;
+      top: 130px;
       transform: none;
       left: 5%;
       right: 5%;
@@ -1099,20 +1587,19 @@ body{
       }
     }
   }
+  .b-offer-list-carousel__type{
+    font-size: 14px;
+    line-height: 16px;
+    left: 5%;
+    right: 5%;
+    top: 35px;
 
-  .b-offer-list-carousel__link{
-    .b-offer-list-carousel__type{
-      font-size: 14px;
-      line-height: 16px;
-      left: 5%;
-      right: 5%;
-      top: 35px;
-
-      &:before{
-        top:0;
-        bottom: 0;
-      }
+    &:before{
+      top:0;
+      bottom: 0;
     }
+  }
+  .b-offer-list-carousel__link{
     .b-offer-list-carousel__text{
       left: 5%;
       right: 5%;
@@ -1128,12 +1615,9 @@ body{
     }
   }
 
-  body.offer-page{
-
-  }
-
   .b-offer-top__title{
     width: 100%;
+    max-height: 500px;
   }
 
   .b-offer-top__title{
@@ -1162,6 +1646,8 @@ body{
   }
 
   .b-offer-bg{
+    max-height: 500px;
+
     &.b-offer-bg__1{
       transform: none !important;
       top: 0;
@@ -1257,25 +1743,53 @@ body{
   .b-clinics-map__box{
     width: 100%;
   }
+  .b-clinics-filter-call{
+    right: 12px;
+    width: 42px;
+    height: 42px;
+
+    &:before{
+      background-size: 17px auto;
+    }
+
+    span{
+      width: 18px;
+      height: 18px;
+      font-size: 9px;
+      line-height: 12px;
+    }
+  }
   .b-clinics__list-box{
     max-height: none;
-    overflow: auto;
+    overflow: visible;
     padding-top: 0;
+    position: absolute;
+    top: 20px;
+    left: 5%;
+    right: 5%;
+    width: auto;
+    height: auto;
+    z-index: 3;
 
     .b-clinics__tabs{
       display: block;
     }
 
     .b-clinics__title{
-      margin: 0 5%;
+      padding: 14px 5% 15px;
+
+      .b-clinics__city{
+        text-transform: none;
+        font-family: $futura_Book;
+        font-size: 16px;
+        line-height: 31px;
+      }
     }
 
     h3{
-      padding-top: 18px;
-      margin-left: 0;
-      margin-right: 0;
-      float: left;
-      vertical-align: top;
+      font-size: 18px;
+      line-height: 31px;
+      margin-bottom: 0;
     }
   }
   .b-clinics-list .b-clinics-list__item{
@@ -1290,8 +1804,11 @@ body{
     min-height: 0;
 
     .b-clinics-map{
-      height: 400px;
+      height: 100%;
     }
+  }
+  .b-clinics-list{
+    display: none;
   }
   .b-offer-docs{
     box-shadow: 0 0 100px rgba(0,0,0, .1);
@@ -1341,6 +1858,8 @@ body{
 
   .b-offer-payment__list{
     .b-offer-payment__list-item{
+      box-shadow: none !important;
+      border-top-color: $borderColor !important;
       padding: 16px 5%;
     }
     .b-offer-payment__title{
@@ -1357,4 +1876,77 @@ body{
   .b-offer-payment h3{
     margin: 29px 5% 24px;
   }
+
+  .b-tooltip{
+    min-height: 0;
+
+    &:before{
+      display: none;
+    }
+
+    &.b-clinics-filter__box{
+      .b-checkbox__box_main{
+        margin-bottom: 10px;
+      }
+      .b-tooltip__top{
+        .b-clinics-filter__close{
+          right: 0;
+          background-size: 18px;
+        }
+      }
+    }
+
+    .b-tooltip__top{
+      padding: 17px 5%;
+      border-bottom: 1px solid $borderColor;
+    }
+
+    .b-tooltip__body{
+      padding: 20px 5% 30px !important;
+    }
+  }
+  .b-clinics-filter__section{
+    margin-bottom: 30px;
+  }
+  .b-city-choose__close{
+    top: 20px;
+    right: 5%;
+    background-size: 18px;
+  }
+  .b-city-choose__wrapper .b-input__box{
+    margin-top: 0;
+  }
+  .b-city-choose__wrapper{
+    padding: 10px 0 0;
+
+    .ui-autocomplete{
+      margin-top: 15px;
+    }
+
+    .ui-menu-item-wrapper{
+      padding-left: 5%;
+      padding-right: 5%;
+    }
+
+    .ui-widget{
+      font-size: $mobRegularFS;
+      line-height: $mobRegularFLH;
+    }
+
+    .b-input__box{
+      .b-input__label,
+      .b-input{
+        padding-left: 5%;
+        padding-right: 5%;
+      }
+      .b-input{
+        padding-bottom: 10px;
+      }
+    }
+  }
+
+  .b-offer-list__link .b-offer-list__inactive{
+    margin-left: 10px;
+  }
+
 }

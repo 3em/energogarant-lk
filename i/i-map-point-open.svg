@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 151.796 176.903">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        fill: #ff4141;
+      }
+
+      .cls-3 {
+        fill: none;
+        stroke: #fff;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-4 {
+        filter: url(#Path_3409);
+      }
+
+      .cls-5 {
+        filter: url(#Ellipse_61);
+      }
+    </style>
+    <filter id="Ellipse_61" x="0" y="25.107" width="151.796" height="151.796" filterUnits="userSpaceOnUse">
+      <feOffset dy="20" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="20" result="blur"/>
+      <feFlood flood-opacity="0.133"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Path_3409" x="7.193" y="0" width="137.111" height="157.104" filterUnits="userSpaceOnUse">
+      <feOffset dy="30" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="15" result="blur-2"/>
+      <feFlood flood-color="#ff4141" flood-opacity="0.447"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_2506" data-name="Group 2506" transform="translate(-111.807 -1269)">
+    <g id="Group_2499" data-name="Group 2499" transform="translate(171.806 1334.107)">
+      <g class="cls-5" transform="matrix(1, 0, 0, 1, -60, -65.11)">
+        <circle id="Ellipse_61-2" data-name="Ellipse 61" class="cls-1" cx="15.898" cy="15.898" r="15.898" transform="translate(60 65.11)"/>
+      </g>
+    </g>
+    <g class="cls-4" transform="matrix(1, 0, 0, 1, 111.81, 1269)">
+      <path id="Path_3409-2" data-name="Path 3409" class="cls-2" d="M47.09,23.546a23.562,23.562,0,0,0-46.9-3.211A23.228,23.228,0,0,0,7.588,40.768,55.079,55.079,0,0,1,22.864,64.8l.681,2.335.681-2.335A56.884,56.884,0,0,1,39.793,40.573,23.5,23.5,0,0,0,47.09,23.546Z" transform="translate(52.21 14.97)"/>
+    </g>
+    <g id="Group_2500" data-name="Group 2500" transform="translate(177.678 1297.582)">
+      <path id="Path_3408" data-name="Path 3408" class="cls-3" d="M41.175,21.709H34.465V15H28.109v6.709H21.4v6.356h6.709v7.062h6.356V28.065h6.709Z" transform="translate(-21.4 -15)"/>
+    </g>
+  </g>
+</svg>

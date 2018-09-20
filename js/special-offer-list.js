@@ -7,8 +7,44 @@ $(function () {
   var $carousel = $('.js-carousel');
   var $offerListItem_carousel = $('.js-offer-carousel-item');
 
+  var $offerListItemSort = $('.js-list-item-sort');
+  var $filterCall = $('.js-filter-call');
+  var $filterLink = $('.js-filter-link');
+  var $filterBox = $('.js-filter-box');
+
 
   $body.addClass('special-offer-page');
+
+  /**
+   * filter offer items
+   */
+  $filterLink.on('click', function (e) {
+    e.preventDefault();
+
+    $filterBox.removeClass('open');
+
+    if (!$(this).hasClass('active')){
+      var thisHref = $(this).attr('href').replace('#','');
+      $filterLink.removeClass('active');
+      $(this).addClass('active');
+      $offerListItemSort.addClass('hidden');
+      $('.js-list-item-sort[data-status='+thisHref+']').removeClass('hidden');
+    } else {
+      $filterLink.removeClass('active');
+      $offerListItemSort.removeClass('hidden');
+    }
+
+    setDefaultOptions();
+    $carousel.slick('reinit');
+  });
+
+  /**
+   * open filter
+   */
+  $filterCall.on('click', function (e) {
+    e.preventDefault();
+    $filterBox.toggleClass('open');
+  });
 
   /**
    * default resize options
@@ -30,18 +66,31 @@ $(function () {
    * set default options
    */
   function setDefaultOptions() {
-    var lengthLists = $offerListItem.length;
+
+    var lengthLists = 0;
+    $offerListItem.each(function () {
+      if (!$(this).hasClass('hidden')){
+        lengthLists = lengthLists + 1;
+      }
+    });
+
+    if (lengthLists == 2){
+      $offerListItem.addClass('single');
+    } else{
+      $offerListItem.removeClass('single');
+    }
+
 
     if (!Number.isInteger(lengthLists/2) && windowWidth > 900){
       $offerListItem_carousel.addClass('vertical');
+    } else if (Number.isInteger(lengthLists/2)) {
+      $offerListItem_carousel.removeClass('vertical');
     }
+
     if (lengthLists == 2 && windowWidth > 900){
       $offerListItem_carousel.addClass('second');
-
-      $('.b-offer-list-carousel__type').each(function () {
-        var $thisLink = $(this).closest('.b-offer-list-carousel__link');
-        $('.b-offer-list-carousel__text', $thisLink).append($(this));
-      })
+    } else if (lengthLists != 2 && windowWidth > 900) {
+      $offerListItem_carousel.removeClass('second');
     }
   }
   setDefaultOptions();

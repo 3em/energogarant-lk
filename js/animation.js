@@ -84,7 +84,7 @@ function init() {
     objLoader.setPath( '/energogarant-lk/js/obj/' );
     objLoader.load( url3d+'.obj', function ( object ) {
 
-      object.position.y = - 95;
+      object.position.y = - 20;
       scene.add( object );
 
     }, onProgress, onError );

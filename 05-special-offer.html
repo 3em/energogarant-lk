@@ -19,7 +19,7 @@
 </head>
 <body>
 
-    <header class="b-header">
+    <header class="js-header b-header">
         <div class="u-clear-fix b-wrapper">
             <a href="/energogarant-lk/" class="b-logo" title="Энергогарант"></a>
             <a href="/energogarant-lk/03-my-data.html" class="b-header__user">Константин К.</a>
@@ -93,13 +93,26 @@
 
     <div class="b-content">
 
+        <div class="js-filter-box b-filter__box">
+            <a href="#" class="js-filter-call b-filter__call"></a>
+            <ul class="b-filter">
+                <li>
+                    <a href="#working" class="js-filter-link b-filter__link">Действующие</a>
+                </li>
+                <li>
+                    <a href="#inactive" class="js-filter-link b-filter__link">Неактивные</a>
+                </li>
+            </ul>
+        </div>
+
         <ul class="u-clear-fix b-offer-list">
-            <li class="js-offer-list-item b-offer-list__item">
+            <li data-status="working" class="js-list-item-sort js-offer-list-item b-offer-list__item">
 
                 <a href="/energogarant-lk/06-special-offer_medical.html" class="b-offer-list__link b-offer-list__link_1 time-alert">
-                    <div data-url="stethoscope" class="js-3d-model b-offer-list__pic"></div>
+                    <div data-url="health" class="js-3d-model b-offer-list__pic"></div>
                     <div class="b-offer-list__title">
                         <span class="b-offer-list__number">9048/18</span>
+                        <span class="b-offer-list__inactive">неактивен</span>
                         <h2>ДОБРОВОЛЬНОЕ МЕДИЦИНСКОЕ СТРАХОВАНИЕ</h2>
                     </div>
                     <div class="b-offer-list__person">
@@ -123,13 +136,14 @@
 
             </li>
 
-            <li class="js-offer-list-item b-offer-list__item">
+            <li data-status="inactive" class="js-list-item-sort js-offer-list-item b-offer-list__item">
 
                 <a href="/energogarant-lk/07-special-offer_kasko.html" class="b-offer-list__link b-offer-list__link_2">
-                    <div data-url="trafficlight" class="js-3d-model-2 b-offer-list__pic"></div>
+                    <div data-url="car" class="js-3d-model-2 b-offer-list__pic"></div>
 
                     <div class="b-offer-list__title">
                         <span class="b-offer-list__number">BBB №7789779779</span>
+                        <span class="b-offer-list__inactive">неактивен</span>
                         <h2>
                             КАСКО ДЛЯ BMW X5
                             X 006 XE 190
@@ -155,13 +169,14 @@
 
             </li>
 
-            <li class="js-offer-list-item b-offer-list__item">
+            <li data-status="inactive" class="js-list-item-sort js-offer-list-item b-offer-list__item">
 
                 <a href="/energogarant-lk/08-special-offer_house.html" class="b-offer-list__link b-offer-list__link_3">
-                    <div data-url="house" class="js-3d-model-3 b-offer-list__pic"></div>
+                    <div data-url="realty" class="js-3d-model-3 b-offer-list__pic"></div>
 
                     <div class="b-offer-list__title">
                         <span class="b-offer-list__number">9048/18</span>
+                        <span class="b-offer-list__inactive">неактивен</span>
                         <h2>
                             СТРАХОВАЯ ПРОГРАММА<br>
                             VILLA DESIGN
@@ -187,11 +202,12 @@
 
             <li class="js-offer-list-item js-offer-carousel-item b-offer-list__item">
 
+                <span class="b-offer-list-carousel__type">ПЕРСОНАЛЬНОЕ ПРЕДЛОЖЕНИЕ</span>
+
                 <div class="js-carousel b-offer-list-carousel">
                     <div class="b-offer-list-carousel__item">
                         <a href="#" class="u-clear-fix b-offer-list-carousel__link">
-                            <div class="b-offer-list-carousel__pic" style="background-image: url(i/__tmp/i-carousel-1.jpg)"></div>
-                            <span class="b-offer-list-carousel__type">ПЕРСОНАЛЬНОЕ ПРЕДЛОЖЕНИЕ</span>
+                            <div class="b-offer-list-carousel__pic" style="background-image: url(i/tmp/i-carousel-1.jpg)"></div>
                             <div class="b-offer-list-carousel__text">
                                 <h2>СКИДКА НА СТРАХОВАНИЕ
                                     ДАЧИ И КВАРТИРЫ 10 %</h2>
@@ -201,8 +217,7 @@
                     </div>
                     <div class="b-offer-list-carousel__item">
                         <a href="#" class="u-clear-fix b-offer-list-carousel__link">
-                            <div class="b-offer-list-carousel__pic" style="background-image: url(i/__tmp/i-carousel-2.jpg)"></div>
-                            <span class="b-offer-list-carousel__type">ПЕРСОНАЛЬНОЕ ПРЕДЛОЖЕНИЕ 2</span>
+                            <div class="b-offer-list-carousel__pic" style="background-image: url(i/tmp/i-carousel-2.jpg)"></div>
                             <div class="b-offer-list-carousel__text">
                                 <h2>Купи дом, получи дачу со скидкой</h2>
                                 <p>При пролонгации действующего договора</p>
@@ -211,8 +226,7 @@
                     </div>
                     <div class="b-offer-list-carousel__item">
                         <a href="#" class="u-clear-fix b-offer-list-carousel__link">
-                            <div class="b-offer-list-carousel__pic" style="background-image: url(i/__tmp/i-carousel-3.jpg)"></div>
-                            <span class="b-offer-list-carousel__type">ПЕРСОНАЛЬНОЕ ПРЕДЛОЖЕНИЕ 3</span>
+                            <div class="b-offer-list-carousel__pic" style="background-image: url(i/tmp/i-carousel-3.jpg)"></div>
                             <div class="b-offer-list-carousel__text">
                                 <h2>3 Nutella по цене 4</h2>
                                 <p>При пролонгации действующего договора</p>
@@ -266,6 +280,7 @@
                 </div>
 
                 <div class="js-file-box b-input-file">
+                    <div class="b-input-file__drag"></div>
                     <input multiple type="file" id="feedback_file" name="feedback[file]" class="js-file b-input-file__input">
                     <label class="b-input-file__label">
                         <span>Выберите файлы или перетащите их сюда</span>

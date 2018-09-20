@@ -73,7 +73,9 @@ $(function () {
 
       // polis dropdown
       if ($target.is('.b-dropdown__item') && $parent.hasClass('js-polis-dropdown')) {
+
         if ($target.html() != CHANGE_WORD){
+
           submitFirstForm();
         }
       }
@@ -108,9 +110,8 @@ $(function () {
    * first form success and show second form
    */
   function showSuccessFirstForm(data) {
-
     // fake list for example
-    data = FAKE_LIST;
+    var data = FAKE_LIST;
     fillPeriodPriceBlock(data);
     $secondPolisForm.removeClass('hidden');
   }

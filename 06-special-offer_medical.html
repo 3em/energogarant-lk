@@ -6,10 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Энергогарант</title>
 
+    <link rel="stylesheet" href="css/jquery-ui.min.css" media="all">
     <link rel="stylesheet" href="css/common.css" media="all">
 
     <script src="js/libs/jquery-3.3.1.min.js"></script>
     <script src="js/libs/phone-mask.js"></script>
+    <script src="js/libs/jquery-ui.min.js"></script>
     <script src="js/libs/slick.js"></script>
 
     <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
@@ -22,7 +24,7 @@
 </head>
 <body>
 
-    <header class="b-header">
+    <header class="js-header b-header">
         <div class="u-clear-fix b-wrapper">
             <a href="/energogarant-lk/" class="b-logo" title="Энергогарант"></a>
             <a href="/energogarant-lk/03-my-data.html" class="b-header__user">Константин К.</a>
@@ -97,7 +99,7 @@
     <div class="b-content">
 
         <div class="u-clear-fix b-offer-top">
-            <div data-url="stethoscope" class="js-window-height js-3d-model b-offer-bg b-offer-bg__1"></div>
+            <div data-url="health" class="js-window-height js-3d-model b-offer-bg b-offer-bg__1"></div>
             <div class="js-window-height b-offer-top__title time-alert">
                 <div class="b-offer-top__title-text">
                     <span class="b-offer-top__number">9048/18</span>
@@ -164,48 +166,135 @@
             <div class="b-clinics__list-box">
                 <div class="u-clear-fix b-clinics__title">
                     <h3>КЛИНИКИ</h3>
-                    <ul class="b-clinics__tabs">
-                        <li>
-                            <a href="#clinicMap" class="js-clinics-tab-link active">Карта</a>
-                        </li>
-                        <li>
-                            <a href="#clinicList" class="js-clinics-tab-link">Список</a>
-                        </li>
-                    </ul>
+                    <a href="#" class="js-city-call b-clinics__city">Москва</a>
+                    <a href="#" class="js-filter-call b-clinics-filter-call">
+                        <span></span>
+                    </a>
                 </div>
-                <ul id="clinicList" class="js-clinics-tab b-clinics-list mob-hidden">
-                    <li class="b-clinics-list__item">
-                        <h4>КЛИНИКА СЕМЕЙНАЯ </h4>
-                        <span>Большая Серпуховская ул., 30, стр. 1</span>
-                        <a href="tel:+74956625885" class="b-clinics-list__tel">+7 (495) 662-58-85</a>
-                    </li>
-                    <li class="b-clinics-list__item">
-                        <h4>КЛИНИКА СЕМЕЙНАЯ </h4>
-                        <span>Большая Серпуховская ул., 30, стр. 1</span>
-                        <a href="tel:+74956625885" class="b-clinics-list__tel">+7 (495) 662-58-85</a>
-                    </li>
-                    <li class="b-clinics-list__item">
-                        <h4>КЛИНИКА СЕМЕЙНАЯ </h4>
-                        <span>Большая Серпуховская ул., 30, стр. 1</span>
-                        <a href="tel:+74956625885" class="b-clinics-list__tel">+7 (495) 662-58-85</a>
-                    </li><li class="b-clinics-list__item">
-                        <h4>КЛИНИКА СЕМЕЙНАЯ </h4>
-                        <span>Большая Серпуховская ул., 30, стр. 1</span>
-                        <a href="tel:+74956625885" class="b-clinics-list__tel">+7 (495) 662-58-85</a>
-                    </li>
-                    <li class="b-clinics-list__item">
-                        <h4>КЛИНИКА СЕМЕЙНАЯ </h4>
-                        <span>Большая Серпуховская ул., 30, стр. 1</span>
-                        <a href="tel:+74956625885" class="b-clinics-list__tel">+7 (495) 662-58-85</a>
-                    </li>
-                    <li class="b-clinics-list__item">
-                        <h4>КЛИНИКА СЕМЕЙНАЯ </h4>
-                        <span>Большая Серпуховская ул., 30, стр. 1</span>
-                        <a href="tel:+74956625885" class="b-clinics-list__tel">+7 (495) 662-58-85</a>
-                    </li>
-                </ul>
+                <ul id="clinicList" class="js-clinics-list b-clinics-list"></ul>
+
+                <form action="http://city.php" class="js-city-choose b-city-choose">
+                    <a href="#" class="js-city-choose-close b-city-choose__close"></a>
+                    <div class="b-city-choose__wrapper">
+                        <div class="ui-widget">
+                            <select id="combobox">
+                                <option value=""></option>
+                                <option value="Россия, Москва">Москва</option>
+                                <option value="Россия, Санкт-Петербург">Санкт-Петербург</option>
+                                <option value="Республика Крым, Россия, Симферополь">Симферополь</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+
+                <form action="http://index.php" class="js-filter-form b-tooltip b-clinics-filter__box">
+                    <div class="b-tooltip__top">
+                        <a href="#" class="js-filter-reset">Сбросить все</a>
+                        <a href="#" class="js-filter-close b-clinics-filter__close"></a>
+                    </div>
+                    <div class="b-tooltip__body">
+
+                        <div class="js-filter-section b-clinics-filter__section">
+                            <div class="b-checkbox__box b-checkbox__box_main">
+                                <input type="checkbox" name="clinicsFilter[all-1]" id="clinicsFilter_all-1" class="js-filter-checkbox js-filter-checkbox-main b-checkbox__input">
+                                <label for="clinicsFilter_all-1" class="b-checkbox__label">
+                                    <i class="b-checkbox__icon"></i>
+                                    <h6>ТИП КЛИНИКИ</h6>
+                                </label>
+                            </div>
+
+                            <div class="b-checkbox__box">
+                                <input type="checkbox" value="1" name="clinicsFilter[1]" id="clinicsFilter_1" class="js-filter-checkbox b-checkbox__input">
+                                <label for="clinicsFilter_1" class="b-checkbox__label">
+                                    <i class="b-checkbox__icon"></i>
+                                    Медцентр, клиника
+                                </label>
+                            </div>
+                            <div class="b-checkbox__box">
+                                <input type="checkbox" value="2" name="clinicsFilter[2]" id="clinicsFilter_2" class="js-filter-checkbox b-checkbox__input">
+                                <label for="clinicsFilter_2" class="b-checkbox__label">
+                                    <i class="b-checkbox__icon"></i>
+                                    Поликлиника для взрослых
+                                </label>
+                            </div>
+                            <div class="b-checkbox__box">
+                                <input type="checkbox" value="3" name="clinicsFilter[3]" id="clinicsFilter_3" class="js-filter-checkbox b-checkbox__input">
+                                <label for="clinicsFilter_3" class="b-checkbox__label">
+                                    <i class="b-checkbox__icon"></i>
+                                    Больница для детей
+                                </label>
+                            </div>
+                            <div class="b-checkbox__box">
+                                <input type="checkbox" value="4" name="clinicsFilter[4]" id="clinicsFilter_4" class="js-filter-checkbox b-checkbox__input">
+                                <label for="clinicsFilter_4" class="b-checkbox__label">
+                                    <i class="b-checkbox__icon"></i>
+                                    Специализированная больница
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="js-filter-section b-clinics-filter__section">
+                            <div class="b-checkbox__box b-checkbox__box_main">
+                                <input type="checkbox" name="clinicsFilter[all-2]" id="clinicsFilter_all-2" class="js-filter-checkbox js-filter-checkbox-main b-checkbox__input">
+                                <label for="clinicsFilter_all-2" class="b-checkbox__label">
+                                    <i class="b-checkbox__icon"></i>
+                                    <h6>УСЛУГИ</h6>
+                                </label>
+                            </div>
+
+                            <div class="b-checkbox__box">
+                                <input type="checkbox" value="5" name="clinicsFilter[5]" id="clinicsFilter_5" class="js-filter-checkbox b-checkbox__input">
+                                <label for="clinicsFilter_5" class="b-checkbox__label">
+                                    <i class="b-checkbox__icon"></i>
+                                    Функциональная диагностика
+                                </label>
+                            </div>
+                            <div class="b-checkbox__box">
+                                <input type="checkbox" value="6" name="clinicsFilter[6]" id="clinicsFilter_6" class="js-filter-checkbox b-checkbox__input">
+                                <label for="clinicsFilter_6" class="b-checkbox__label">
+                                    <i class="b-checkbox__icon"></i>
+                                    Диагностические исследовани
+                                </label>
+                            </div>
+                            <div class="b-checkbox__box">
+                                <input type="checkbox" value="7" name="clinicsFilter[7]" id="clinicsFilter_7" class="js-filter-checkbox b-checkbox__input">
+                                <label for="clinicsFilter_7" class="b-checkbox__label">
+                                    <i class="b-checkbox__icon"></i>
+                                    Физиотерапия, ЛФК, массаж
+                                </label>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+
+                <div class="js-tooltip b-tooltip">
+                    <div class="b-tooltip__top">
+                        <a href="#" class="js-tooltip-close">Список клиник</a>
+                    </div>
+                    <div class="js-tooltip-body b-tooltip__body">
+                        <div class="b-tooltip__text">
+                            <h6>КЛИНИКА СЕМЕЙНАЯ</h6>
+                            <p class="b-tooltip__address">Большая Серпуховская ул., 30, стр. 1</p>
+                            <a href="tel:+7 (495) 662-58-85" class="b-tooltip__phone">+7 (495) 662-58-85</a>
+                            <ul>
+                                <li>Медцентр</li>
+                                <li>Клиника</li>
+                                <li>Поликлиника для взрослых</li>
+                            </ul>
+                        </div>
+                        <ul class="b-tooltip__urls">
+                           <li>
+                               <a href="#" target="_blank">Построить маршрут</a>
+                           </li>
+                            <li>
+                               <a href="#" target="_blank">Записаться On-line</a>
+                           </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div id="clinicMap" class="js-clinics-tab b-clinics-map__box">
+            <div id="clinicMap" class="js-window-height b-clinics-map__box">
                 <div id="clinics-map" class="b-clinics-map"></div>
             </div>
         </div>
@@ -272,6 +361,7 @@
                 </div>
 
                 <div class="js-file-box b-input-file">
+                    <div class="b-input-file__drag"></div>
                     <input multiple type="file" id="feedback_file" name="feedback[file]" class="js-file b-input-file__input">
                     <label class="b-input-file__label">
                         <span>Выберите файлы или перетащите их сюда</span>

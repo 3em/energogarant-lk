@@ -10,15 +10,16 @@ $(function () {
   var container = $('.js-3d-model');
   var url3d = container.attr('data-url');
 
-
-  init();
-  animate();
+  if (container.length) {
+    init();
+    animate();
+  }
 
 
   function init() {
 
     camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 1, 2000 );
-    camera.position.z = 300;
+    camera.position.z = 250;
 
     // scene
 
@@ -86,7 +87,7 @@ $(function () {
       objLoader.setPath( '/energogarant-lk/js/obj/' );
       objLoader.load( url3d+'.obj', function ( object ) {
 
-        object.position.y = - 95;
+        object.position.y = -20;
         scene.add( object );
 
       }, onProgress, onError );
