@@ -630,6 +630,7 @@ $(function () {
         myMap.destroy();
         initMap();
         $('input', $filterForm).prop('checked', false);
+        filterAmount();
         $cityCall.html(valCity);
         closeCityChoose();
       }
