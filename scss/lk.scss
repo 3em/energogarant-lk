@@ -147,11 +147,15 @@
   margin-bottom: 40px;
 
   .b-lk__from-column{
+    float: none;
+    display: inline-block;
+    vertical-align: top;
     width: 430px;
+    margin-bottom: 20px;
 
-    &+.b-lk__from-column{
-      float: right;
+    &:nth-child(2n){
       width: 200px;
+      margin-left: 65px;
     }
   }
 }
@@ -534,8 +538,9 @@
   .b-lk__from_main .b-lk__from-column{
     width: 60%;
 
-    &+.b-lk__from-column{
+    &:nth-child(2n){
       width: 30%;
+      margin-left: 8%;
     }
   }
 
@@ -603,6 +608,7 @@
     .b-lk__from-column{
       width: 100% !important;
       margin-bottom: 20px;
+      margin-left: 0 !important;
 
       &:last-child{
         margin-bottom: 0;
