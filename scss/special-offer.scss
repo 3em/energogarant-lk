@@ -648,13 +648,13 @@ body{
   }
 }
 .b-ins-steps{
-  min-height: 420px;
+  height: 420px;
 }
 .b-ins-steps__list{
   float: left;
   vertical-align: top;
   position: relative;
-  min-height: 100%;
+  height: 100%;
   width: 75%;
   counter-reset: ins-steps-list;
 

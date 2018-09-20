@@ -8,6 +8,7 @@ $(function () {
   var windowHalfY = window.innerHeight / 2;
 
   var container = $('.js-3d-model-3');
+  var $thisLI = container.closest('.js-list-item-sort');
   var url3d = container.attr('data-url');
 
   if (container.length) {
@@ -99,7 +100,7 @@ $(function () {
     renderer.setSize( window.innerWidth, window.innerHeight );
     container.append(renderer.domElement);
 
-    document.addEventListener( 'mousemove', onDocumentMouseMove, false );
+    // document.addEventListener( 'mousemove', onDocumentMouseMove, false );
 
     //
 
@@ -125,6 +126,8 @@ $(function () {
     mouseY = ( event.clientY - windowHalfY ) / 2;
 
   }
+
+  $thisLI.on('mousemove', onDocumentMouseMove);
 
 //
 

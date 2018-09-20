@@ -375,7 +375,6 @@ showErrorFields= function ($this, error){
   // example of error
   // key - это id инпута
   // value - текст ошибки или пустая строка, если нет ошибки
-  console.log('error');
   var error = {
     'enter_phone': 'Неверный номер телефона',
     'enter_pass': ''

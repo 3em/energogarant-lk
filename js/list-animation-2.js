@@ -8,6 +8,7 @@ $(function () {
   var windowHalfY = window.innerHeight / 2;
 
   var container = $('.js-3d-model-2');
+  var $thisLI = container.closest('.js-list-item-sort');
   var url3d = container.attr('data-url');
 
   if (container.length){
@@ -99,7 +100,7 @@ $(function () {
     renderer.setSize( window.innerWidth, window.innerHeight );
     container.append(renderer.domElement);
 
-    document.addEventListener( 'mousemove', onDocumentMouseMove, false );
+    // document.addEventListener( 'mousemove', onDocumentMouseMove, false );
 
     //
 
@@ -126,6 +127,7 @@ $(function () {
 
   }
 
+  $thisLI.on('mousemove', onDocumentMouseMove);
 //
 
   function animate() {
