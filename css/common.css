@@ -2534,7 +2534,8 @@ body.offer-page .b-content {
       color: #000; }
 
 .b-offer-docs {
-  position: relative; }
+  position: relative;
+  background: #fff; }
 
 .b-offer-docs__text {
   float: left;
