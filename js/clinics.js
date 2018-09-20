@@ -368,7 +368,7 @@ $(function () {
             {name: data.id, title: data.title, phone: data.phone, address: data.address},
             {
               iconLayout: 'default#imageWithContent',
-              iconImageHref: 'i/i-map-point.svg',
+              iconImageHref: '/energogarant-lk/i/i-map-point.svg',
               iconImageSize: [184, 184],
               iconImageOffset: [-92, -92],
               openEmptyBalloon: true,
@@ -416,7 +416,7 @@ $(function () {
 
           clusterer = new ymaps.Clusterer({
             clusterIcons: [{
-              href: 'i/i-cluster.svg',
+              href: '/energogarant-lk/i/i-cluster.svg',
               size: [184, 184],
               offset: [-92, -92]
             }],
@@ -461,7 +461,7 @@ $(function () {
 
     // set to get
     closeFilter();
-    placemark.properties.set('balloonContent', '<div class="js-popup-office-close b-map-close" style="position: absolute; width: 140px; height: 130px; left: 50%; margin-left: -5px; top: -75px; background: url(/i/i-map-point-open.svg); background-size: cover; transform: translate(-50%,0)"></div>');
+    placemark.properties.set('balloonContent', '<div class="js-popup-office-close b-map-close" style="position: absolute; width: 140px; height: 130px; left: 50%; margin-left: -5px; top: -75px; background: url(/energogarant-lk/i/i-map-point-open.svg); background-size: cover; transform: translate(-50%,0)"></div>');
     openTooltip()
   }
 
