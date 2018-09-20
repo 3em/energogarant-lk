@@ -54,6 +54,14 @@ body{
         box-shadow: inset 0 20px 100px rgba(0,0,0, .1);
       }
 
+      &.hidden{
+        &+.b-offer-list__item{
+          .b-offer-list__link{
+            box-shadow: inset 0 20px 100px rgba(0,0,0, .1);
+          }
+        }
+      }
+
       &:hover{
         &+.b-offer-list__item{
           .b-offer-list__link{
@@ -1351,7 +1359,7 @@ body{
   }
 }
 
-@media screen and (max-width: 1200px){
+@media screen and (max-width: 1300px){
   .b-ins-steps__list .b-ins-steps__list-item{
     padding: 105px 3.5% 0;
 
