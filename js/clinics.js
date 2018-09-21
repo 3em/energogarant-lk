@@ -13,6 +13,9 @@ $(function () {
   var $cityCall = $('.js-city-call');
   var $cityClose = $('.js-city-choose-close');
   var windowHeight = $(window).height();
+  var windowWidth = $(window).width();
+  var $burgerCall = $('.js-burger-call');
+  var $tooltipAccordion = $('.js-tooltip-accordion');
 
 
   var clusterer;
@@ -46,6 +49,32 @@ $(function () {
   }];
 
 
+  /**
+   * tooltip accordion
+   */
+  $tooltipAccordion.on('click', function (e) {
+    e.preventDefault();
+
+    $(this).toggleClass('close');
+    $('.js-tooltip-accordion-hide').toggleClass('mob-hidden');
+  });
+
+  /**
+   * hide burger if view on map
+   */
+  function mobileHideBurgerOnMap() {
+    var val_top = $('#clinicMap')[0].getBoundingClientRect().top;
+    if (windowWidth < 768 && val_top <= $burgerCall.height() && val_top > windowHeight * -1 && !$burgerCall.hasClass('mob-hidden')){
+      $burgerCall.addClass('mob-hidden');
+    } else if (windowWidth < 768 && (val_top > $burgerCall.height() || val_top < windowHeight * -1 ) && $burgerCall.hasClass('mob-hidden')){
+      $burgerCall.removeClass('mob-hidden');
+    }
+  }
+  mobileHideBurgerOnMap();
+
+  /**
+   * set def options
+   */
   function setDefaultValues() {
     var heightCity = windowHeight - 40;
     $cityChooseForm.css('height', heightCity+'px');
@@ -54,8 +83,14 @@ $(function () {
 
   $(window).on('resize', function () {
     windowHeight = $(window).height();
+    windowWidth = $(window).width();
 
     setDefaultValues();
+    mobileHideBurgerOnMap();
+  });
+
+  $(window).on('scroll', function () {
+    mobileHideBurgerOnMap();
   });
 
   /**
@@ -335,8 +370,8 @@ $(function () {
             }
 
             var position = this._$element.position();
-            var width = $(".b-map-close", this._$element[0]).outerWidth();
-            var height = $(".b-map-close", this._$element[0]).outerHeight();
+            var width = (windowWidth > 767 ) ? $(".b-map-close", this._$element[0]).outerWidth() : parseInt(windowWidth / 2);
+            var height = (windowWidth > 767 ) ? $(".b-map-close", this._$element[0]).outerHeight() : parseInt(windowHeight / 2 +100);
 
             return new ymaps.shape.Rectangle(new ymaps.geometry.pixel.Rectangle([
               [position.left-100, -height], [position.left + width, position.top + height]
@@ -477,6 +512,8 @@ $(function () {
    */
   function closeTooltip() {
     $tooltip.removeClass('open');
+    $tooltipAccordion.removeClass('close');
+    $('.js-tooltip-accordion-hide').removeClass('mob-hidden');
   }
 
 

@@ -1057,6 +1057,24 @@ body{
         background: url("../i/i-accordion-docs.svg") no-repeat;
       }
     }
+
+    .b-tooltip__accordion{
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 60px;
+      height: 60px;
+      background: url("../i/i-accordion-docs.svg") no-repeat center 53%;
+      background-size: 20px auto;
+      transform: rotate(0deg);
+      transition: transform .25s;
+      display: none;
+
+      &.close{
+        transform: rotate(180deg);
+      }
+    }
   }
 
   .b-tooltip__text{
@@ -1636,9 +1654,6 @@ body{
       position: relative;
       left: auto;
       right: auto;
-      transform: none;
-      top: 0;
-      margin-top: 98px;
     }
 
     .b-offer-top__number{
@@ -1736,11 +1751,11 @@ body{
     width: 810px;
 
     .b-ins-steps__list-item{
-      padding: 90px 5% 0;
+      padding: 85px 3% 0;
 
       &:before{
-        top: 23px;
-        left: 15%;
+        top: 40px;
+        left: 9%;
         font-family: $futura_Demi;
       }
     }
@@ -1908,6 +1923,10 @@ body{
     .b-tooltip__top{
       padding: 17px 5%;
       border-bottom: 1px solid $borderColor;
+
+      .b-tooltip__accordion{
+        display: block;
+      }
     }
 
     .b-tooltip__body{

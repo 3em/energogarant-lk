@@ -2736,6 +2736,20 @@ body.offer-page .b-content {
         width: 20px;
         height: 10px;
         background: url("../i/i-accordion-docs.svg") no-repeat; }
+    .b-tooltip .b-tooltip__top .b-tooltip__accordion {
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 60px;
+      height: 60px;
+      background: url("../i/i-accordion-docs.svg") no-repeat center 53%;
+      background-size: 20px auto;
+      transform: rotate(0deg);
+      transition: transform .25s;
+      display: none; }
+      .b-tooltip .b-tooltip__top .b-tooltip__accordion.close {
+        transform: rotate(180deg); }
   .b-tooltip .b-tooltip__text ul {
     opacity: .4; }
     .b-tooltip .b-tooltip__text ul li {
@@ -3117,10 +3131,7 @@ body.offer-page .b-content {
     .b-offer-top__title .b-offer-top__title-text {
       position: relative;
       left: auto;
-      right: auto;
-      transform: none;
-      top: 0;
-      margin-top: 98px; }
+      right: auto; }
     .b-offer-top__title .b-offer-top__number {
       font-size: 18px;
       margin-bottom: 18px; }
@@ -3192,10 +3203,10 @@ body.offer-page .b-content {
     height: 330px !important;
     width: 810px; }
     .b-ins-steps__list .b-ins-steps__list-item {
-      padding: 90px 5% 0; }
+      padding: 85px 3% 0; }
       .b-ins-steps__list .b-ins-steps__list-item:before {
-        top: 23px;
-        left: 15%;
+        top: 40px;
+        left: 9%;
         font-family: "FuturaPT-Demi"; }
 
   .b-clinics__box {
@@ -3317,6 +3328,8 @@ body.offer-page .b-content {
     .b-tooltip .b-tooltip__top {
       padding: 17px 5%;
       border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
+      .b-tooltip .b-tooltip__top .b-tooltip__accordion {
+        display: block; }
     .b-tooltip .b-tooltip__body {
       padding: 20px 5% 30px !important; }
 
