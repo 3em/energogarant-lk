@@ -566,15 +566,15 @@ h6 {
   margin-right: 50px; }
 
 .b-header__policies {
+  font-family: "FuturaPT-Demi";
   position: absolute;
   right: 30px;
   top: 100%;
-  font-size: 20px;
+  font-size: 22px;
   line-height: 40px;
   transform: rotate(-90deg);
   transform-origin: right top;
   white-space: nowrap;
-  letter-spacing: .1em;
   color: #000;
   z-index: 9;
   display: none; }

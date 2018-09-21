@@ -214,15 +214,15 @@ h6{
 }
 
 .b-header__policies{
+  font-family: $futura_Demi;
   position: absolute;
   right: 30px;
   top: 100%;
-  font-size: 20px;
+  font-size: 22px;
   line-height: 40px;
   transform: rotate(-90deg);
   transform-origin: right top;
   white-space: nowrap;
-  letter-spacing: .1em;
   color: $regularColor;
   z-index: 9;
   display: none;
