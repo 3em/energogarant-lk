@@ -648,9 +648,6 @@ $(function () {
         points = {};
         geoObjects = [];
 
-
-
-
         $.get(action, form_data, function (data) {
 
         });

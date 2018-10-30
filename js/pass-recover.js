@@ -88,18 +88,44 @@ $(function () {
     }
   }
 
+  var PASS_SUBMIT_STATUS = false;
   function chkform3($form) {
     var passMask = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
     var validPass = passMask.test($('.js-pass', $form).val());
 
+    var $inputBox = $('.js-required', $form).closest('.js-input-box');
+
     if ($('.js-required.js-filled', $form).length < $('.js-required', $form).length) {
-      $('.b-button', $form).attr('disabled', 'disabled');
+
+      PASS_SUBMIT_STATUS = false;
+      $inputBox.addClass('error');
+      $('.b-input__error', $inputBox).html('Заполните поле ввода');
+
+      var $inputBoxFilled = $('.js-required.js-filled', $form).closest('.js-input-box');
+      $inputBoxFilled.removeClass('error');
+
     } else if (!validPass){
-      $('.b-button', $form).attr('disabled', 'disabled');
+
+      PASS_SUBMIT_STATUS = false;
+      var $thisInputBox = $('.js-pass', $form).closest('.js-input-box');
+      $thisInputBox.addClass('error');
+      $('.b-input__error', $thisInputBox).html('Неверный формат пароля');
+
+
     } else if ($('.js-pass', $form).val() != $('.js-pass-repeat', $form).val()){
-      $('.b-button', $form).attr('disabled', 'disabled');
+
+      PASS_SUBMIT_STATUS = false;
+      var $thisInputBox = $('.js-pass-repeat', $form).closest('.js-input-box');
+      $thisInputBox.addClass('error');
+      $('.b-input__error', $thisInputBox).html('Пароли не совпадают');
+
+
     } else {
-      $('.b-button', $form).removeAttr('disabled');
+
+      PASS_SUBMIT_STATUS = true;
+      $('.js-pass', $form).removeClass('error');
+      $('.js-pass-repeat', $form).removeClass('error');
+
     }
   }
 
@@ -126,6 +152,9 @@ $(function () {
 
   $('input, textarea', $form3).on('keyup paste change input', function () {
     var $this = $(this);
+
+    if ($form3.hasClass('show-error'))
+      $form3.removeClass('show-error');
 
     commonFormsInputsChanging($this, this);
 
@@ -159,10 +188,16 @@ $(function () {
   $form3.on('submit', function(e) {
     e.preventDefault();
     e.stopPropagation();
+    chkform3($form3);
 
     var $this = $(this);
 
-    submitFormLast($this, $this.serialize());
+    if (PASS_SUBMIT_STATUS){
+      submitFormLast($this, $this.serialize());
+    } else {
+      $this.addClass('show-error');
+    }
+
     return false;
   });
 

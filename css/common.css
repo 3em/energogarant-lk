@@ -1016,6 +1016,14 @@ h6 {
     font-size: 22px;
     line-height: 37px;
     margin-bottom: 45px; }
+  .b-pass-recover.b-pass-recover_new .b-input__box.error .b-input {
+    border-bottom-color: rgba(0, 0, 0, 0.1); }
+  .b-pass-recover.b-pass-recover_new .b-input__box.error .b-input__error {
+    display: none; }
+  .b-pass-recover.b-pass-recover_new.show-error .b-input__box.error .b-input {
+    border-bottom-color: #FF4141; }
+  .b-pass-recover.b-pass-recover_new.show-error .b-input__box.error .b-input__error {
+    display: block; }
 
 .b-overlay {
   position: fixed;

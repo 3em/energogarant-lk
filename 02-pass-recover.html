@@ -139,7 +139,7 @@
                 </div>
             </form>
 
-            <form class="js-pass-recover-3 b-pass-recover hidden" action="http://index.php">
+            <form class="js-pass-recover-3 b-pass-recover b-pass-recover_new hidden" action="http://index.php">
                 <p class="b-pass-recover__text">
                     Введите новый пароль
                 </p>
@@ -147,7 +147,7 @@
                 <div class="js-input-box b-input__box">
                     <input id="pass-recover_pass" name="pass-recover[pass]" class="js-required js-pass js-input b-input" type="password">
                     <label for="pass-recover_pass" class="b-input__label">Пароль</label>
-                    <p class="b-input__error"></p>
+                    <p class="b-input__error">Неверный формат пароля</p>
                     <div class="b-input__dop-text">
                         <p>Должен включать минимум 8 символов, одну заглавная буква, цифру и буквы латинского алфавита</p>
                     </div>
@@ -156,11 +156,11 @@
                 <div class="js-input-box b-input__box">
                     <input id="pass-recover_pass-repeat" name="pass-recover[pass-repeat]" class="js-required js-pass-repeat js-input b-input" type="password">
                     <label for="pass-recover_pass-repeat" class="b-input__label">Подтвердите пароль</label>
-                    <p class="b-input__error"></p>
+                    <p class="b-input__error">Пароли не совпадают</p>
                 </div>
 
                 <div class="b-button__box">
-                    <button type="submit" class="b-button" disabled="disabled">Изменить пароль</button>
+                    <button type="submit" class="b-button">Изменить пароль</button>
                 </div>
 
                 <div class="js-form-error b-forms-error hidden">
