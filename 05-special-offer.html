@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Энергогарант</title>
+
+    <link rel="stylesheet" href="css/common.css" media="all">
+
+    <script src="js/libs/jquery-3.3.1.min.js"></script>
+    <script src="js/libs/phone-mask.js"></script>
+    <script src="js/libs/slick.js"></script>
+
+    <script src="js/main.js"></script>
+    <script src="js/feedback.js"></script>
+    <script src="js/special-offer-list.js"></script>
+
+</head>
+<body>
+
+    <header class="js-header b-header">
+        <div class="u-clear-fix b-wrapper">
+            <a href="/energogarant-lk/" class="b-logo" title="Энергогарант"></a>
+            <a href="/energogarant-lk/03-my-data.html" class="b-header__user">Константин К.</a>
+            <div class="u-clear-fix b-header__center">
+                <a href="#" class="js-ins-case-call b-button b-button__ins-case">Страховой случай</a>
+                <ul class="u-clear-fix b-header__menu">
+                    <li>
+                        <a href="#" class="b-header__menu-link">Оплата полиса</a>
+                    </li>
+                    <li>
+                        <a href="#" class="js-feedback-call b-header__menu-link">Обратная связь</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="u-clear-fix b-header__right">
+                <a href="#" class="b-header__policies active">мои полисы</a>
+                <a href="#" class="b-header__exit">Выйти</a>
+            </div>
+
+            <div class="js-notification b-notification">
+                <a href="#" class="js-notification-link b-notification__link">
+                    <span>2</span>
+                </a>
+
+                <ul class="b-notification__down">
+                    <li>
+                        <a href="#" class="b-notification__down-link">
+                            <span>11 августа</span>
+                            По ДТП от 10 июля назначена страховая выплата
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="b-notification__down-link">
+                            <span>11 августа</span>
+                            Срок действия полиса ДМС истекает через 6 дней
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <a href="tel:+74957370330" class="b-header__phone">8 (495) 737-03-30</a>
+        </div>
+    </header>
+
+    <a href="#" class="js-burger-call b-burger__link"></a>
+
+    <div class="js-mob-menu b-mob-menu">
+        <a href="/energogarant-lk/" class="b-mob-menu__logo"></a>
+
+        <a href="/energogarant-lk/03-my-data.html" class="b-mob-menu__user"><span>Константин К.</span></a>
+
+        <ul class="u-clear-fix b-mob-menu__menu">
+            <li>
+                <a href="#" class="b-mob-menu__menu-link active">Список полисов</a>
+            </li>
+            <li>
+                <a href="#" class="b-mob-menu__menu-link">Оплата полиса</a>
+            </li>
+            <li>
+                <a href="#" class="js-feedback-call b-mob-menu__menu-link">Обратная связь</a>
+            </li>
+            <li>
+                <a href="#" class="b-mob-menu__menu-link">Выйти</a>
+            </li>
+        </ul>
+
+        <a href="#" class="js-ins-case-call b-button b-button__ins-case">Страховой случай</a>
+
+    </div>
+
+    <div class="b-content">
+
+        <div class="js-filter-box b-filter__box">
+            <a href="#" class="js-filter-call b-filter__call"></a>
+            <ul class="b-filter">
+                <li>
+                    <a href="#working" class="js-filter-link b-filter__link">Действующие</a>
+                </li>
+                <li>
+                    <a href="#inactive" class="js-filter-link b-filter__link">Неактивные</a>
+                </li>
+            </ul>
+        </div>
+
+        <ul class="u-clear-fix b-offer-list">
+            <li data-status="working" class="js-list-item-sort js-offer-list-item b-offer-list__item">
+
+                <a href="/energogarant-lk/06-special-offer_medical.html" class="b-offer-list__link b-offer-list__link_1 time-alert">
+                    <div data-url="health" class="js-3d-model b-offer-list__pic"></div>
+                    <div class="b-offer-list__title">
+                        <span class="b-offer-list__number">9048/18</span>
+                        <span class="b-offer-list__inactive">неактивен</span>
+                        <h2>ДОБРОВОЛЬНОЕ МЕДИЦИНСКОЕ СТРАХОВАНИЕ</h2>
+                    </div>
+                    <div class="b-offer-list__person">
+                        <div class="u-clear-fix">
+                            <span>Застрахованные</span>
+                            <ul>
+                                <li>Анастасия К.</li>
+                                <li>Константин К.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <span>до 5 авг 2018</span>
+                        </div>
+                    </div>
+
+                    <div class="b-offer-list__time">
+                        <span>6 дней до окончания действия полиса</span>
+                        <span>Продлить</span>
+                    </div>
+                </a>
+
+            </li>
+
+            <li data-status="inactive" class="js-list-item-sort js-offer-list-item b-offer-list__item">
+
+                <a href="/energogarant-lk/07-special-offer_kasko.html" class="b-offer-list__link b-offer-list__link_2">
+                    <div data-url="car" class="js-3d-model-2 b-offer-list__pic"></div>
+
+                    <div class="b-offer-list__title">
+                        <span class="b-offer-list__number">BBB №7789779779</span>
+                        <span class="b-offer-list__inactive">неактивен</span>
+                        <h2>
+                            КАСКО ДЛЯ BMW X5
+                            X 006 XE 190
+                        </h2>
+                    </div>
+                    <div class="b-offer-list__person">
+                        <div class="u-clear-fix">
+                            <span>Водитель</span>
+                            <ul>
+                                <li>Анастасия К.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <span>до 21 фев 2019</span>
+                        </div>
+                    </div>
+
+                    <div class="b-offer-list__time">
+                        <span>6 дней до окончания действия полиса</span>
+                        <span>Продлить</span>
+                    </div>
+                </a>
+
+            </li>
+
+            <li data-status="inactive" class="js-list-item-sort js-offer-list-item b-offer-list__item">
+
+                <a href="/energogarant-lk/08-special-offer_house.html" class="b-offer-list__link b-offer-list__link_3">
+                    <div data-url="realty" class="js-3d-model-3 b-offer-list__pic"></div>
+
+                    <div class="b-offer-list__title">
+                        <span class="b-offer-list__number">9048/18</span>
+                        <span class="b-offer-list__inactive">неактивен</span>
+                        <h2>
+                            СТРАХОВАЯ ПРОГРАММА<br>
+                            VILLA DESIGN
+                        </h2>
+                    </div>
+                    <div class="b-offer-list__person">
+                        <div class="u-clear-fix">
+                            <span>Объект</span>
+                            <span>ул. 1-я Парковская,<br>д 12, стр 14</span>
+                        </div>
+                        <div>
+                            <span>до 21 фев 2019</span>
+                        </div>
+                    </div>
+
+                    <div class="b-offer-list__time">
+                        <span>6 дней до окончания действия полиса</span>
+                        <span>Продлить</span>
+                    </div>
+                </a>
+
+            </li>
+
+            <li class="js-offer-list-item js-offer-carousel-item b-offer-list__item">
+
+                <span class="b-offer-list-carousel__type">ПЕРСОНАЛЬНОЕ ПРЕДЛОЖЕНИЕ</span>
+
+                <div class="js-carousel b-offer-list-carousel">
+                    <div class="b-offer-list-carousel__item">
+                        <a href="#" class="u-clear-fix b-offer-list-carousel__link">
+                            <div class="b-offer-list-carousel__pic" style="background-image: url(i/tmp/i-carousel-1.jpg)"></div>
+                            <div class="b-offer-list-carousel__text">
+                                <h2>СКИДКА НА СТРАХОВАНИЕ
+                                    ДАЧИ И КВАРТИРЫ 10 %</h2>
+                                <p>При пролонгации действующего договора</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="b-offer-list-carousel__item">
+                        <a href="#" class="u-clear-fix b-offer-list-carousel__link">
+                            <div class="b-offer-list-carousel__pic" style="background-image: url(i/tmp/i-carousel-2.jpg)"></div>
+                            <div class="b-offer-list-carousel__text">
+                                <h2>Купи дом, получи дачу со скидкой</h2>
+                                <p>При пролонгации действующего договора</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="b-offer-list-carousel__item">
+                        <a href="#" class="u-clear-fix b-offer-list-carousel__link">
+                            <div class="b-offer-list-carousel__pic" style="background-image: url(i/tmp/i-carousel-3.jpg)"></div>
+                            <div class="b-offer-list-carousel__text">
+                                <h2>3 Nutella по цене 4</h2>
+                                <p>При пролонгации действующего договора</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+            </li>
+        </ul>
+
+    </div>
+
+    <footer class="js-footer b-footer">
+        <div class="b-wrapper">
+            <div class="b-footer__license">
+                Лицензии на страхование ЦБ РФ от 01.02.2016 г  СЛ № 1834, СИ № 1834, ОС №1834-03, ОС №1834-04, ОС №1834-05 Лицензия на перестрахование ЦБ РФ от 01.02.2016 г  СП № 1834   ОГРН 1027739068060
+            </div>
+            <div class="b-footer__copy">
+                Copyright © ENERGOGARANT 2009-2017. Все права защищены
+            </div>
+        </div>
+    </footer>
+
+    <div class="js-overlay b-overlay">
+        <a href="#" class="js-close-popup b-popup__close"></a>
+
+        <div class="js-feedback-popup js-popup b-popup b-popup__feedback">
+            <form name="feedback" class="js-feedback js-show-part-on-close b-feedback" action="http://index.php">
+                <h2>ОБРАТНАЯ СВЯЗЬ</h2>
+
+                <div class="b-dropdown__box">
+                    <div class="js-question-select b-dropdown">
+                        <span class="b-dropdown__label">Тема обращения</span>
+                        <div class="b-dropdown__arrow"></div>
+                        <span class="b-dropdown__text js-link-stop"></span>
+                        <ul class="b-dropdown__sub">
+                            <li class="b-dropdown__item">Вопрос</li>
+                            <li class="b-dropdown__item">Жалоба</li>
+                            <li class="b-dropdown__item">Благодарность</li>
+                            <li class="b-dropdown__item">Предложение</li>
+                        </ul>
+                    </div>
+                    <input class="hidden js-input-for-select b-input" id="feedback_theme" name="feedback[theme]" type="text">
+                </div>
+
+                <div class="js-input-box b-input__box">
+                    <textarea id="feedback_text" name="feedback[text]" class="js-required js-input b-input"></textarea>
+                    <label for="feedback_text" class="b-input__label">Мое обращение</label>
+                    <p class="b-input__error"></p>
+                </div>
+
+                <div class="js-file-box b-input-file">
+                    <div class="b-input-file__drag"></div>
+                    <input multiple type="file" id="feedback_file" name="feedback[file]" class="js-file b-input-file__input">
+                    <label class="b-input-file__label">
+                        <span>Выберите файлы или перетащите их сюда</span>
+                        <span>Прикрепить файл</span>
+                    </label>
+                    <p class="b-input-file__faq">Размер файла не должен превышать 10 мегабайт</p>
+                    <ul class="js-file-insert b-input-file__text hidden"></ul>
+                </div>
+
+                <div class="b-button__box">
+                    <button type="submit" class="b-button" disabled="disabled">Далее</button>
+                </div>
+
+                <div class="js-form-error b-forms-error hidden">
+                    Возникла ошибка.<br>Повторите попытку позже.
+                </div>
+
+            </form>
+            <div class="js-feedback-success js-form-success-common b-feedback__success hidden">
+                <h2>ВАШЕ СООБЩЕНИЕ ОТПРАВЛЕНО</h2>
+                <p>Спасибо! В ближайшее время мы свяжемся с вами по указанному телефону или по электронной почте.</p>
+                <div class="b-button__box">
+                    <a href="#" class="js-close-popup b-button">Вернуться на сайт</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="js-ins-case-popup js-popup b-popup b-popup__ins-case">
+            <h2>СТРАХОВОЙ СЛУЧАЙ</h2>
+            <p>Выберете полис по которому возник страховой случай</p>
+            <ul class="b-ins-case__list">
+                <li>
+                    <a href="#" class="b-ins-case__list-item">
+                        <span>9048/18</span>
+                        Добровольное медицинское страхование
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="b-ins-case__list-item">
+                        <span>BBB №7789779779</span>
+                        КАСКО Citroen C3 X234 MH 190
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="b-ins-case__list-item">
+                        <span>9048/18</span>
+                        Страховая программа Villa Design
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+    <script src="js/libs/three.min.js"></script>
+    <script src="js/anim/DDSLoader.js"></script>
+    <script src="js/anim/MTLLoader.js"></script>
+    <script src="js/anim/OBJLoader.js"></script>
+    <script src="js/list-animation.js"></script>
+    <script src="js/list-animation-2.js"></script>
+    <script src="js/list-animation-3.js"></script>
+
+</body>
+</html>
+

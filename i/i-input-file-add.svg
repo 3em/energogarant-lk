@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #ff4141;
+      }
+    </style>
+  </defs>
+  <g id="Group_2154" data-name="Group 2154" transform="translate(0 1)">
+    <line id="Line_452" data-name="Line 452" class="cls-1" x2="36" transform="translate(0 17.486)"/>
+    <path id="Path_2792" data-name="Path 2792" class="cls-1" d="M0,0H36" transform="translate(18.4 -1) rotate(90)"/>
+  </g>
+</svg>
