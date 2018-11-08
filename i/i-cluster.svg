@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 243.727 243.727">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        opacity: 0.4;
+      }
+
+      .cls-2 {
+        fill: #ff4141;
+      }
+
+      .cls-3 {
+        filter: url(#Ellipse_61-2);
+      }
+
+      .cls-4 {
+        filter: url(#Ellipse_61);
+      }
+    </style>
+    <filter id="Ellipse_61" x="0" y="0" width="243.727" height="243.727" filterUnits="userSpaceOnUse">
+      <feOffset dy="20" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="30" result="blur"/>
+      <feFlood flood-opacity="0.4"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Ellipse_61-2" x="81.163" y="66.163" width="81.067" height="81.067" filterUnits="userSpaceOnUse">
+      <feOffset dy="5" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="5" result="blur-2"/>
+      <feFlood flood-color="#ff4141" flood-opacity="0.502"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_1104" data-name="Group 1104" transform="translate(-70.273 -285.273)">
+    <g class="cls-4" transform="matrix(1, 0, 0, 1, 70.27, 285.27)">
+      <circle id="Ellipse_61-3" data-name="Ellipse 61" class="cls-1" cx="31.863" cy="31.863" r="31.863" transform="translate(90 70)"/>
+    </g>
+    <g class="cls-3" transform="matrix(1, 0, 0, 1, 70.27, 285.27)">
+      <circle id="Ellipse_61-4" data-name="Ellipse 61" class="cls-2" cx="25.534" cy="25.534" r="25.534" transform="translate(96.16 76.16)"/>
+    </g>
+  </g>
+</svg>
